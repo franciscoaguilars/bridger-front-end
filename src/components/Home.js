@@ -2,17 +2,27 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Home = () => {
-  const [users, setUsers] = useState([])
+  const [students, setStudents] = useState([])
 
   useEffect(()=> {
-    axios.get('http://localhost:3000/api/v1/students.json')
-    .then( resp => setUsers(resp.data) )
+    const url = 'http://localhost:3000/api/v1/students.json'
+    axios.get(url)
+    .then( resp => setStudents(resp.data) )
     .catch( resp => console.log(resp) )
-  }, [users.length])
+  }, [students.length])
+
+  const list = students.map( student => {
+    return (
+      <ul>
+        <li>{student.first_name}</li>
+      </ul>
+    )
+  })
 
   return (
     <div>
       Homepage!
+      {list}
     </div>
   )
 }
