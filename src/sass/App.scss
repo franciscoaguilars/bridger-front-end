@@ -1,6 +1,11 @@
 @import "components/container";
 @import "components/navbar";
+@import "abstracts/variables";
 
+
+body {
+  background-color: $color-background;
+}
 
 .App {
   text-align: center;
