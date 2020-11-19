@@ -1,11 +1,11 @@
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 import { Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
-import About from './components/About';
+import About from './compone./components/Dashboard/TutorDashboard
 import Dashboard from './components/Dashboard/Dashboard';
 import Tutors from './components/Tutors/Tutors';
 
