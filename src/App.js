@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './App.scss';
+import './sass/App.scss';
 import { Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
