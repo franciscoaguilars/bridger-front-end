@@ -13,7 +13,6 @@ function App() {
   return (
     <div>
       <Navbar />
-      <div className="container">
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
@@ -23,7 +22,6 @@ function App() {
           <Route exact path="/tutors" component={Tutors} />
         </Switch>
       </div>
-    </div>
   );
 }
 

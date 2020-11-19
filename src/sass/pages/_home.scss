@@ -1,0 +1,44 @@
+.title-home {
+  position: relative;
+  height: 95vh;
+  
+}
+
+.title-box-home {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.how-it-works {
+  width: 100%;
+  padding: 1rem 5rem 2rem;
+  background-color: #FFD6BA;
+  text-align: center;
+}
+
+.how-it-works-header {
+  padding: 1rem;  
+}
+
+.how-it-works-deck {
+  display: flex;
+  justify-content: space-around;
+}
+
+.how-it-works-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #89B0AE;
+  border-radius: 5px;
+  width: 20rem;
+  border: 1px solid white;
+}
