@@ -25,8 +25,7 @@ const Login = () => {
 
   return (
     <div className="container ">
-      <div className="row justify-content-center align-items-center">
-      <div className="col-10 col-md-12 col-lg-6">
+      
       <form onSubmit={handleOnSubmit}>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Email address</label>
@@ -39,8 +38,7 @@ const Login = () => {
         </div>
         <button type="submit" className="btn btn-primary">Log in</button>
       </form>
-      </div>
-    </div>
+      
     </div>
   )
 }
