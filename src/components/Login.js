@@ -1,5 +1,6 @@
 import axios from 'axios';
 import react, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -17,15 +18,21 @@ const Login = () => {
       email: email,
       password: password
     })
-    .then(resp => console.log(resp)
-    )
+    .then(resp => {
+      console.log(resp);
+      if(resp.data.error){
+        alert(resp.data.error)
+      } else {
+        localStorage.setItem("token", resp.data.token);
+        <Redirect to="/me" />
+      }
+    })
   }
 
 
 
   return (
     <div className="container ">
-      
       <form onSubmit={handleOnSubmit}>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Email address</label>
