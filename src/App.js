@@ -10,6 +10,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Tutors from './components/Tutors/Tutors';
 import CreateStudent from './components/CreateStudent';
 import CreateTutor from './components/CreateTutor';
+import Partners from './components/Partners/Partners';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/signin" component={Login} />
           <Route exact path="/me" component={Dashboard} />
           <Route exact path="/tutors" component={Tutors} />
+          <Route exact path="/partners" component={Partners} />
         </Switch>
       </div>
   );
