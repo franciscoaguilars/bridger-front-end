@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-// import Tutor from './Tutor';
+import Tutor from './Tutor';
 import axios from 'axios';
 
 
@@ -20,18 +20,18 @@ const Tutors = () => {
     .catch( resp => console.log(resp) )
   }, [])
 
-  const list = tutors.map( tutor => {
+  const grid = tutors.map( tutor => {
     return (
-      <ul>
-        <li key={tutor.id}>{tutor.first_name}</li>
-      </ul>
+          <Tutor key={tutor.id} attributes={tutor} />
     )
   })
 
   return (
-    <div>
-      Tutors Index!
-      {list}
+    <div className="container">
+      <h1 className="mb-4">Available Tutors</h1>
+      <div className="tutors-grid">
+        {grid}
+      </div>
     </div>
   )
 }
