@@ -8,6 +8,8 @@ import Login from './components/Login';
 import About from './components/About';
 import Dashboard from './components/Dashboard/Dashboard';
 import Tutors from './components/Tutors/Tutors';
+import CreateStudent from './components/CreateStudent';
+import CreateTutor from './components/CreateTutor';
 
 function App() {
   return (

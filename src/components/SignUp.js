@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 
 const SignUp = () => {
@@ -29,8 +30,15 @@ const SignUp = () => {
       password: user.password,
       role: user.role
     })
-    .then(resp => console.log(resp)
-    )
+    .then(resp => {
+      console.log(resp);
+      if(resp.data.error){
+        alert(resp.data.error)
+      } else {
+        localStorage.setItem("token", resp.data.token);
+        <Redirect to="/me" />
+      }
+    })
   }
 
  
@@ -52,12 +60,13 @@ const SignUp = () => {
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label for="email">Email address</label>
-          <input onChange={handleChange} name="email" type="email" className="form-control" id="email" aria-describedby="emailHelp"></input>
+          <input onChange={handleChange} name="email" type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"></input>
           <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div className="form-group">
           <label for="password">Password</label>
-          <input onChange={handleChange} name="password" type="password" className="form-control" id="password"></input>
+          <input onChange={handleChange} name="password" type="password" className="form-control" id="password" placeholder="Enter password"></input>
+          <small id="emailHelp" className="form-text text-muted">Your password must contain: 1) Minimum 8 characters, 2) One Uppercase Letter, 3) One Number</small>
         </div>
         <div className="mb-3">
         {roleOptions}
