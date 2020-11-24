@@ -1,0 +1,22 @@
+.tutor-card {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.tutor-card-image {
+  min-width: 150px;
+  min-height: 150px;
+  background-color: black;
+  margin-right: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.tutor-card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
