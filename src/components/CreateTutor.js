@@ -3,7 +3,7 @@ import react from 'react';
 const CreateTutor = () => {
   return(
     <div className="container">
-      <h3>Please complete the form for further inspection.</h3>
+      <h2 className="mb-4">Create Your Tutor Profile</h2>
       <form>
         <div className="form-group">
           <label for="firstName">First Name</label>

@@ -34,11 +34,12 @@ const SignUp = () => {
     })
     .then(resp => {
       console.log(resp);
-      history.push("/me");
       if(resp.data.error){
         alert(resp.data.error)
       } else {
         localStorage.setItem("token", resp.data.token);
+        localStorage.setItem("user", resp.data.user);
+        user.role === "student" ? history.push("/students/create") : history.push("tutors/create");
       }
     })
   }
@@ -61,8 +62,8 @@ const SignUp = () => {
     <div className="container">
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label for="first_name">First Name</label>
-          <input onChange={handleChange} name="firstName" type="text" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"></input>
+          <label for="email">Email Address</label>
+          <input onChange={handleChange} name="email" type="text" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"></input>
           <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div className="form-group">

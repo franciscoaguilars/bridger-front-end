@@ -1,10 +1,11 @@
 import axios from 'axios';
 import react, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const history = useHistory();
 
 
   const handleOnSubmit = (e) => {
@@ -24,8 +25,9 @@ const Login = () => {
         alert(resp.data.error)
       } else {
         localStorage.setItem("token", resp.data.token);
-        <Redirect to="/me" />
+        localStorage.setItem("user", resp.data.user);
       }
+      history.push("/me");
     })
   }
 

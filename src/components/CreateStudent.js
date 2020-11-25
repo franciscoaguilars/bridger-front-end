@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import AuthService from '../services/services';
 
 const CreateStudent = () => {
+
+  const currentUser = AuthService.getCurrentUser();
 
   const [student, setStudent] = useState({});
   const history = useHistory();
@@ -10,6 +13,8 @@ const CreateStudent = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('clicked');
+    console.log(currentUser);
+    
     
     axios.post('http://localhost:3000/students',
     {
@@ -18,7 +23,8 @@ const CreateStudent = () => {
       city: student.city,
       state: student.state,
       country: student.country,
-      school: student.school
+      school: student.school,
+      user: currentUser
     })
     .then(resp => {
       console.log(resp);
