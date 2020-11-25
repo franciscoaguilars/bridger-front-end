@@ -29,7 +29,7 @@ const Tutors = () => {
   return (
     <div className="container">
       <h1 className="mb-4">Available Tutors</h1>
-      <div className="tutors-grid">
+      <div className="tutors-grid mb-4">
         {grid}
       </div>
     </div>

@@ -5,12 +5,13 @@
 @import "components/grids";
 @import "components/tutor-card";
 @import "components/partner-card";
-
+@import "components/footer";
 
 body {
   background-color: $color-background;
 }
 
 .App {
-  text-align: center;
+  position: relative;
+  min-height: 100vh;
 }

@@ -30,7 +30,7 @@ const Partners = () => {
   return (
     <div className="container">
       <h1 className="mb-4">Our Partners</h1>
-      <div className="partners-grid">
+      <div className="partners-grid mb-4">
         {grid}
       </div>
     </div>
