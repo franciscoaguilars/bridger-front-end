@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import axios from 'axios';
 import './sass/App.scss';
 import { Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -11,10 +11,12 @@ import Tutors from './components/Tutors/Tutors';
 import CreateStudent from './components/CreateStudent';
 import CreateTutor from './components/CreateTutor';
 import Partners from './components/Partners/Partners';
+import Footer from './components/Footer';
 
 function App() {
+
   return (
-    <div>
+    <div className="App">
       <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -25,7 +27,8 @@ function App() {
           <Route exact path="/tutors" component={Tutors} />
           <Route exact path="/partners" component={Partners} />
         </Switch>
-      </div>
+      <Footer />
+    </div>
   );
 }
 
