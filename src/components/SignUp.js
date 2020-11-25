@@ -7,11 +7,9 @@ const SignUp = () => {
   const [user, setUser] = useState({});
   const history = useHistory();
 
-  const setRole = (e, role) => {
-    e.preventDefault();
-    setUser({...user, role})
-    console.log(user);
-    
+  const setRole = (e) => {
+    const userRole = e.target.value;
+    setUser({...user, role: userRole})
   }
 
   const handleChange = (e) => {
@@ -22,7 +20,10 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('clicked');
+
+    console.log(user);
+
+
     
     axios.post('http://localhost:3000/users',
     {
@@ -45,8 +46,8 @@ const SignUp = () => {
   const roleOptions = ["student", "tutor"].map( (role, index) => {
     return(
       <div className="form-check" key={index}>
-      <input className="form-check-input" value={role} type="radio" name="role" onChange={()=> console.log('onChange')} id={`user-${role}`} checked={user.role === role} />
-      <label onClick={setRole.bind(this, role)} className="form-check-label" >
+      <input onClick={setRole} className="form-check-input" value={role} type="radio" name="role"  id={`user-${role}`} />
+      <label className="form-check-label" >
         {`I'm a ${role}`}
       </label>
     </div>
@@ -69,7 +70,7 @@ const SignUp = () => {
           <small id="emailHelp" className="form-text text-muted">Your password must contain: 1) Minimum 8 characters, 2) One Uppercase Letter, 3) One Number</small>
         </div>
         <div className="mb-3">
-        {roleOptions}
+          {roleOptions}
         </div>
         
         <button className="btn btn-primary">Sign Up</button>
@@ -79,3 +80,6 @@ const SignUp = () => {
 }
 
 export default SignUp;
+
+
+// checked={user.role === role}
