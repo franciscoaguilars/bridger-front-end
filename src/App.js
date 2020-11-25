@@ -26,6 +26,8 @@ function App() {
           <Route exact path="/me" component={Dashboard} />
           <Route exact path="/tutors" component={Tutors} />
           <Route exact path="/partners" component={Partners} />
+          <Route exact path="/students/create" component={CreateStudent} />
+          <Route exact path="/tutors/create" component={CreateTutor} />
         </Switch>
       <Footer />
     </div>

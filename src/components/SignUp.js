@@ -8,7 +8,6 @@ const SignUp = () => {
   const history = useHistory();
 
   const setRole = (e, role) => {
-    e.preventDefault();
     setUser({...user, role})
     console.log(user);
     
@@ -45,8 +44,8 @@ const SignUp = () => {
   const roleOptions = ["student", "tutor"].map( (role, index) => {
     return(
       <div className="form-check" key={index}>
-      <input className="form-check-input" value={role} type="radio" name="role" onChange={()=> console.log('onChange')} id={`user-${role}`} checked={user.role === role} />
-      <label onClick={setRole.bind(this, role)} className="form-check-label" >
+      <input className="form-check-input" value={role} type="radio" name="role" onChange={()=> console.log('onChange')} onClick={setRole.bind(this, role)} id={`user-${role}`} checked={role} />
+      <label className="form-check-label" >
         {`I'm a ${role}`}
       </label>
     </div>
@@ -59,8 +58,8 @@ const SignUp = () => {
     <div className="container">
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label for="email">Email address</label>
-          <input onChange={handleChange} name="email" type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"></input>
+          <label for="first_name">First Name</label>
+          <input onChange={handleChange} name="firstName" type="text" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"></input>
           <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div className="form-group">
