@@ -25,7 +25,7 @@ const Login = () => {
         alert(resp.data.error)
       } else {
         localStorage.setItem("token", resp.data.token);
-        localStorage.setItem("user", resp.data.user);
+        localStorage.setItem("user", JSON.stringify(resp.data.user));
       }
       history.push("/me");
     })

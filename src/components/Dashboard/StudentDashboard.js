@@ -1,9 +1,9 @@
 import react from 'react';
 
-const StudentDashboard = () => {
+const StudentDashboard = (props) => {
   return(
     <div>
-      <h2 className="mb-4">Welcome to the Student Dashboard</h2>
+      <h2 className="mb-4">{`Welcome to the Student Dashboard, ${props.attributes.email}`}</h2>
       <div className="row">
         <div className="col-lg-4 col-sm-12">
           <h4>My Information</h4>
