@@ -10,6 +10,12 @@
   grid-template-columns: 1fr 1fr 1fr;
 }
 
+.appointments-grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
 @media screen and (max-width: 1200px) {
   .tutors-grid {
     grid-template-columns: 1fr 1fr;

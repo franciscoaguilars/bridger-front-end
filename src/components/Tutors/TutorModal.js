@@ -1,6 +1,17 @@
 import react from 'react';
+import Appointment from '../Appointments/Appointment';
 
 const TutorModal = (props) => {
+
+  const appointmentGrid = props.attributes.appointments.map(appointment => {
+      return(
+        <div>
+          <Appointment appointment={appointment}/>
+        </div>
+      )
+    });
+
+
   return(
     <div>
       <div class="modal fade" id={`modal-${props.attributes.id}`} tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -33,7 +44,11 @@ const TutorModal = (props) => {
             </ul>
             <div class="tab-content" id="myTabContent">
               <div class="tab-pane fade show active py-4" id={`about-${props.attributes.id}`} role="tabpanel" aria-labelledby="about">{props.attributes.summary}</div>
-              <div class="tab-pane fade" id={`appointments-${props.attributes.id}`} role="tabpanel" aria-labelledby="appointments">......</div>
+              <div class="tab-pane fade" id={`appointments-${props.attributes.id}`} role="tabpanel" aria-labelledby="appointments">
+              <div className="appointments-grid">
+              {appointmentGrid}
+              </div>
+              </div>
             </div>
             </div>
             <div class="modal-footer">

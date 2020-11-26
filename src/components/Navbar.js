@@ -4,14 +4,52 @@ import getCurrentUser from '../services/services';
 
 const Navbar = () => {
 
+  const logOut = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+  };
+  
+
   const currentUser = getCurrentUser();
+
+  const PageLinks = () => {
+    if(currentUser) {
+      return(
+        <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">About</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/me">Dashboard</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/tutors">Tutors</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/partners">Partners</Link>
+            </li>
+          </ul>
+      )
+    } else {
+      return (
+        <ul className="navbar-nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">About</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/partners">Partners</Link>
+            </li>
+          </ul>
+      )
+    }
+  }
 
   const SessionLinks = () => {
     if(currentUser) {
       return(
         <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-             <Link className="nav-link" to="/signin">Log Out</Link>
+             <Link className="nav-link" to="/signin" onClick={logOut}>Log Out</Link>
             </li>
         </ul>
       )
@@ -37,20 +75,7 @@ const Navbar = () => {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <Link className="nav-link" to="/about">About</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/me">Dashboard</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/tutors">Tutors</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/partners">Partners</Link>
-            </li>
-          </ul>
+          <PageLinks />
           <SessionLinks />
         </div>
       </nav>
