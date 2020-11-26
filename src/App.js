@@ -1,4 +1,5 @@
 import axios from 'axios';
+import AuthService from './services/services';
 import './sass/App.scss';
 import { Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -14,7 +15,6 @@ import Partners from './components/Partners/Partners';
 import Footer from './components/Footer';
 
 function App() {
-  
 
   return (
     <div className="App">

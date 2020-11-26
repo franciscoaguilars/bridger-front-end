@@ -12,7 +12,6 @@ const Tutor = (props) => {
         <h5>{`${props.attributes.first_name} ${props.attributes.last_name}`}</h5>
         <small><strong>{props.attributes.occupation}</strong></small>
         <small>{`${props.attributes.city}, ${props.attributes.state}, ${props.attributes.country}`}</small>
-        <small><em>{props.attributes.linked_in_link}</em></small>
         
         <a className="badge badge-primary mt-1" type="button" data-toggle="modal" data-target={`#modal-${props.attributes.id}`}>
           See Details >>

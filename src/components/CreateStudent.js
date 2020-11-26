@@ -23,23 +23,22 @@ const CreateStudent = () => {
       state: student.state,
       country: student.country,
       school: student.school,
-      user: currentUser
+      user_id: currentUser.id
     })
     .then(resp => {
       console.log(resp);
-      history.push("/me");
       if(resp.data.error){
         alert(resp.data.error)
       } else {
         localStorage.setItem("token", resp.data.token);
+        history.push("/me");
       }
     })
   }
 
   const handleChange = (e) => {
-    e.preventDefault();
     setStudent(Object.assign({}, student, {[e.target.name]: e.target.value}));
-    setStudent({...student, user: currentUser})
+    // setStudent({...student, user: currentUser})
     console.log(('student:', student));
   }
 
@@ -53,7 +52,7 @@ const CreateStudent = () => {
         </div>
         <div className="form-group">
           <label for="lastName">Last Name</label>
-          <input onChange={handleChange} name="last_name" type="text" className="form-control" id="lastName" placeholder="Last Name"></input>
+          <input onChange={handleChange} name="lastName" type="text" className="form-control" id="lastName" placeholder="Last Name"></input>
         </div>
         <div className="form-group">
           <label for="city">City</label>
