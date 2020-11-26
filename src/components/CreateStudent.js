@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import AuthService from '../services/services';
+import getCurrentUser from '../services/services';
 
 const CreateStudent = () => {
 
-  const currentUser = AuthService.getCurrentUser();
-
   const [student, setStudent] = useState({});
   const history = useHistory();
+  const currentUser = getCurrentUser();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('clicked');
-    console.log(currentUser);
+    console.log(student);
     
     
-    axios.post('http://localhost:3000/students',
+    axios.post('http://localhost:3000/api/v1/students',
     {
       first_name: student.firstName,
       last_name: student.lastName,
@@ -39,7 +38,8 @@ const CreateStudent = () => {
 
   const handleChange = (e) => {
     e.preventDefault();
-    setStudent(Object.assign({}, student, {[e.target.name]: e.target.value}))
+    setStudent(Object.assign({}, student, {[e.target.name]: e.target.value}));
+    setStudent({...student, user: currentUser})
     console.log(('student:', student));
   }
 
@@ -71,6 +71,7 @@ const CreateStudent = () => {
           <label for="school">School</label>
           <input onChange={handleChange} name="school" type="text" className="form-control" id="school" placeholder="School"></input>
         </div>
+        <input onChange={handleChange} type="hidden" id="user" name="user" value={currentUser}></input>
         <button className="btn btn-primary">Sign Up</button>
       </form>
     </div>
