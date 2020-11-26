@@ -1,7 +1,34 @@
 import react from 'react';
 import { Link } from 'react-router-dom';
+import getCurrentUser from '../services/services';
 
 const Navbar = () => {
+
+  const currentUser = getCurrentUser();
+
+  const SessionLinks = () => {
+    if(currentUser) {
+      return(
+        <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+             <Link className="nav-link" to="/signin">Log Out</Link>
+            </li>
+        </ul>
+      )
+    } else {
+      return(
+        <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+             <Link className="nav-link" to="/signin">Log In</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/signup">Sign Up</Link>
+            </li>
+          </ul>
+      )
+    }
+  }
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -24,14 +51,7 @@ const Navbar = () => {
               <Link className="nav-link" to="/partners">Partners</Link>
             </li>
           </ul>
-          <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-             <Link className="nav-link" to="/signin">Log In</Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/signup">Sign Up</Link>
-            </li>
-          </ul>
+          <SessionLinks />
         </div>
       </nav>
     </div>
