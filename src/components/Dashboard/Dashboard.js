@@ -2,6 +2,7 @@ import react from 'react';
 import StudentDashboard from './StudentDashboard';
 import getCurrentUser from '../../services/services';
 import TutorDashboard from './TutorDashboard';
+import AdminDashboard from './AdminDashboard';
 
 const Dashboard = () => {
 
@@ -20,7 +21,7 @@ const Dashboard = () => {
       )
     } else {
       return(
-        <div>Admin Dashboard</div>
+        <AdminDashboard attributes={currentUser} />
       )   
     }
   }

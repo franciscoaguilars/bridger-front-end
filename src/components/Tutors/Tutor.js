@@ -1,4 +1,5 @@
 import react from 'react';
+import TutorModal from './TutorModal';
 
 
 const Tutor = (props) => {
@@ -12,6 +13,11 @@ const Tutor = (props) => {
         <small><strong>{props.attributes.occupation}</strong></small>
         <small>{`${props.attributes.city}, ${props.attributes.state}, ${props.attributes.country}`}</small>
         <small><em>{props.attributes.linked_in_link}</em></small>
+        
+        <a className="badge badge-primary mt-1" type="button" data-toggle="modal" data-target={`#modal-${props.attributes.id}`}>
+          See Details >>
+        </a>
+        <TutorModal attributes={props.attributes} />
       </div>
     </div>
   )
