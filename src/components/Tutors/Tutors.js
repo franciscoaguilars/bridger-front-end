@@ -20,7 +20,7 @@ const Tutors = () => {
     .catch( resp => console.log(resp) )
   }, [])
 
-  const grid = tutors.map( tutor => {
+  const tutorsGrid = tutors.map( tutor => {
     return (
           <Tutor key={tutor.id} attributes={tutor} />
     )
@@ -30,7 +30,7 @@ const Tutors = () => {
     <div className="container">
       <h1 className="mb-4">Available Tutors</h1>
       <div className="tutors-grid mb-4">
-        {grid}
+        {tutorsGrid}
       </div>
     </div>
   )

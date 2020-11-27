@@ -42,7 +42,7 @@ const TutorModal = (props) => {
                 <a class="nav-link active" id="about-tab" data-toggle="tab" href={`#about-${props.attributes.id}`} role="tab" aria-controls="about" aria-selected="true">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="appointments-tab" data-toggle="tab" href={`#appointments-${props.attributes.id}`} role="tab" aria-controls="appointments" aria-selected="false">Appointments</a>
+                <a class="nav-link" id="appointments-tab" data-toggle="tab" href={`#appointments-${props.attributes.id}`} role="tab" aria-controls="appointments" aria-selected="false">Available Appointments</a>
               </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -54,7 +54,7 @@ const TutorModal = (props) => {
               </div>
             </div>
             </div>
-            
+
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
