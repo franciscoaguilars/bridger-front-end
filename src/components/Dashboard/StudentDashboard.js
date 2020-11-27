@@ -1,17 +1,30 @@
 import react from 'react';
+import Appointment from '../Appointments/Appointment';
 
 const StudentDashboard = (props) => {
+
+  console.log(props);
+  
+
+  const appointmentGrid = props.attributes.student.appointments.map(appointment => {
+    return(
+      <div>
+        <Appointment appointment={appointment}/>
+      </div>
+    )
+  });
+
   return(
     <div>
-      <h2 className="mb-4">{`Welcome to the Student Dashboard, ${props.attributes.email}`}</h2>
+      <h2 className="mb-4">{`Welcome to the Student Dashboard, ${props.attributes.student.first_name}`}</h2>
       <div className="row">
-        <div className="col-lg-4 col-sm-12">
-          <h4>My Information</h4>
+        <div className="col-lg-6 col-sm-12">
+          <h4 className="mb-4">My Appointments</h4>
+          <div className="appointments-grid mb-4">
+                {appointmentGrid}
+              </div>
         </div>
-        <div className="col-lg-4 col-sm-12">
-          <h4>My Appointments</h4>
-        </div>
-        <div className="col-lg-4 col-sm-12">
+        <div className="col-lg-6 col-sm-12">
           <h4>My Progress</h4>
         </div>
       </div>

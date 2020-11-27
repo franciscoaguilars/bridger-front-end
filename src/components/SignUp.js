@@ -21,11 +21,8 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     console.log(user);
 
-
-    
     axios.post('http://localhost:3000/users',
     {
       email: user.email,
