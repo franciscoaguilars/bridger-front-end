@@ -4,11 +4,13 @@ import Appointment from '../Appointments/Appointment';
 const TutorModal = (props) => {
 
   const appointmentGrid = props.attributes.appointments.map(appointment => {
-      return(
-        <div>
-          <Appointment appointment={appointment}/>
-        </div>
-      )
+      if(appointment.student_id === null) {
+        return(
+          <div>
+            <Appointment appointment={appointment}/>
+          </div>
+        )
+      }
     });
 
 
@@ -33,6 +35,7 @@ const TutorModal = (props) => {
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
+
             <div class="modal-body">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item">
@@ -51,6 +54,7 @@ const TutorModal = (props) => {
               </div>
             </div>
             </div>
+            
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>

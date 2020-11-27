@@ -6,12 +6,25 @@ const TutorDashboard = (props) => {
   console.log(props);
   
 
-  const appointmentGrid = props.attributes.tutor.appointments.map(appointment => {
-    return(
-      <div>
+  const unbookedAppointments = props.attributes.tutor.appointments.map(appointment => {
+    if(!appointment.student_id){
+      return(
         <Appointment appointment={appointment}/>
-      </div>
     )
+    } else {
+      return null
+    }
+    
+  });
+
+  const bookedAppointments = props.attributes.tutor.appointments.map(appointment => {
+    if(appointment.student_id){
+      return(
+        <Appointment appointment={appointment}/>
+    )
+    } else {
+      return null
+    }  
   });
 
   return(
@@ -20,8 +33,25 @@ const TutorDashboard = (props) => {
       <div className="row">
         <div className="col-lg-6 col-sm-12">
           <h4>My Appointments</h4>
-          <div className="appointments-grid mb-4">
-            {appointmentGrid}
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" id="about-tab" data-toggle="tab" href={`#unbooked-${props.attributes.id}`} role="tab" aria-controls="about" aria-selected="true">Available</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="appointments-tab" data-toggle="tab" href={`#booked-${props.attributes.id}`} role="tab" aria-controls="appointments" aria-selected="false">Booked</a>
+            </li>
+          </ul>
+          <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active py-4" id={`unbooked-${props.attributes.id}`} role="tabpanel" aria-labelledby="about">
+              <div className="appointments-grid">
+              {unbookedAppointments}
+              </div>
+            </div>
+            <div class="tab-pane fade py-4" id={`booked-${props.attributes.id}`}     role="tabpanel" aria-labelledby="appointments">
+              <div className="appointments-grid">
+                {bookedAppointments}
+              </div>
+            </div>
           </div>
         </div>
         <div className="col-lg-6 col-sm-12">
