@@ -1,13 +1,17 @@
-import react from 'react';
+import React, { useState } from 'react';
 import Appointment from '../Appointments/Appointment';
 
 const TutorModal = (props) => {
 
-  const appointmentGrid = props.attributes.appointments.map(appointment => {
+  const [appointments, setAppointments] = useState(props.attributes.appointments);
+  console.log(appointments);
+  
+
+  const appointmentGrid = appointments.map(appointment => {
       if(appointment.student_id === null) {
         return(
           <div>
-            <Appointment appointment={appointment}/>
+            <Appointment appointment={appointment} updateAppointments={setAppointments}/>
           </div>
         )
       }

@@ -1,5 +1,6 @@
 import react from 'react';
 import getCurrentUser from '../../services/services';
+import axios from 'axios';
 
 const Appointment = (props) => {
 
@@ -8,6 +9,13 @@ const Appointment = (props) => {
   const tutorName = props.appointment.tutor_id;
   console.log(props.appointment);
 
+  const handleCancel = () => {
+    const newList = props.appointmentList.filter(appointment => appointment.id !== props.appointment.id);
+    props.updateAppointments(newList);
+    const url = 'http://localhost:3000/api/v1/appointments/'
+    axios.delete(`${url}${props.appointment.id}`)
+  };
+
   const AppointmentButtons = () => {
     if (currentUser.role === "student" && props.appointment.student_id === null) {
       return(
@@ -15,11 +23,11 @@ const Appointment = (props) => {
       )
     } else if(currentUser.role === "tutor" && currentUser.tutor.id === props.appointment.tutor_id) {
       return (
-        <button className="btn btn-primary btn-block">Cancel</button>
+        <button className="btn btn-primary btn-block" onClick={handleCancel}>Cancel</button>
       )
     } else if(currentUser.role === "student" && props.appointment.student_id) {
       return (
-        <button className="btn btn-primary btn-block">Cancel</button>
+        <button className="btn btn-primary btn-block" onClick={handleCancel}>Cancel</button>
       )
     } else {
       return null;
