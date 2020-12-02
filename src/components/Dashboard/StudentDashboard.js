@@ -1,15 +1,16 @@
-import react from 'react';
+import React, { useState } from 'react';
 import Appointment from '../Appointments/Appointment';
 
 const StudentDashboard = (props) => {
 
+  const [appointments, setAppointments] = useState(props.attributes.student.appointments);
   console.log(props);
   
 
-  const appointmentGrid = props.attributes.student.appointments.map(appointment => {
+  const appointmentGrid = appointments.map(appointment => {
     return(
       <div>
-        <Appointment appointment={appointment}/>
+        <Appointment appointmentList={appointments} appointment={appointment} updateAppointments={setAppointments} />
       </div>
     )
   });
