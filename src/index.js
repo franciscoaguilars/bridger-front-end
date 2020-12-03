@@ -8,11 +8,34 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+//REDUX IMPORTS
+import {applyMiddleware, createStore, compose} from "redux";
+import {Provider} from 'react-redux';
+import rootReducer from "./reducers/rootReducer";
+import thunk from "redux-thunk";
+
+// FOR DEVELOPMENT / THERE ARE ISSUES WITH SOME BROWSERS WHEN USING REDUX DEVTOOLS
+const store = createStore(
+  rootReducer,
+  compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__
+    && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
+
+// // FOR PRODUCTION
+// const store = createStore(
+//   rootReducer,
+//   applyMiddleware(thunk)
+// );
 
 ReactDOM.render(
+  <Provider store={store}>
   <Router>
     <Route path="/" component={App}/>
-  </Router>,
+  </Router>
+  </Provider>,
   document.getElementById('root')
 );
 
