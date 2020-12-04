@@ -29,7 +29,20 @@ class Services {
 //////////////////////////////////////  CANCEL APPOINTMENT  //////////////////////////////////////
 
   static async updateAppointments(id) {
-    await this.request(`api/v1/appointments/${id}`, "delete");
+    await this.request(`api/v1/appointments/${id}`, {}, "delete");
+  };
+
+//////////////////////////////////////  CANCEL APPOINTMENT  //////////////////////////////////////
+
+  static async getLoggedInUser(id, token) {
+    console.log("id", id);
+    console.log("token", token);
+    let res = await this.request(`api/v1/users/${id}`);
+    console.log("res from getLoggedInUser: ", res);
+    const user = res.data.user;
+    user["token"] = token;
+    console.log("user from getLoggedInUser: ", user);
+    return user;
   };
 
 };

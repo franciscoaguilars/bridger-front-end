@@ -2,18 +2,21 @@ import {GET_USER, UPDATE_USER_ERROR} from "../actionTypes";
 import Services from "../services/services";
 
 /**
-
-*/
+ * gets User object from backend after logging in and sets User state
+ * @param {string} email - user's email
+ * @param {string} password - user's password
+ */
 export function getUser(email, password) {
 
   return async function(dispatch) {
     try {
       const user = await Services.login(email, password);
-      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("userId", JSON.stringify(user.id));
+      localStorage.setItem("token", JSON.stringify(user.token));
       dispatch(updateUser(user));
     } catch(e) {
       console.log("HIT login error: ", e);
-      dispatch(updateGetUserError(true));
+      // dispatch(updateGetUserError(true));
     };
   };
 };

@@ -11,14 +11,10 @@ const Appointment = ({appointment, appointmentList}) => {
   const studentName = appointment.student_id;
   const tutorName = appointment.tutor_id;
   const dispatch = useDispatch();
-  console.log(appointment);
+  // console.log(appointment);
 
   const handleCancel = () => {
-    console.log(currentUser);
-    appointmentList.filter(appt => appt.id !== appointment.id);
-    console.log(appointments);
-    dispatch(cancelAppointment(appointments));
-    console.log(currentUser);
+    dispatch(cancelAppointment(appointment.id));
   };
 
   const AppointmentButtons = () => {

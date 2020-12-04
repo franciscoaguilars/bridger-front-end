@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect } from 'react';
-// import AuthService from './services/Services';
+import Services from './services/services';
 import './sass/App.scss';
 import { Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -22,11 +22,14 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const getUser = () => {
-      const user = localStorage.getItem("user");
-      if (user) {
-        dispatch(addUser(JSON.parse(user)));
-      }
+    const getUser = async () => {
+      const userId = localStorage.getItem("userId");
+      const token = localStorage.getItem("token");
+      if (userId) {
+ 
+        const user = await Services.getLoggedInUser(JSON.parse(userId), JSON.parse(token));
+        dispatch(addUser(user));
+      };
     };
     getUser();
   }, []);

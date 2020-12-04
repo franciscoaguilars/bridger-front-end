@@ -2,13 +2,15 @@ import {CANCEL_APPOINTMENT, UPDATE_CANCEL_APPOINTMENT_ERROR} from "../actionType
 import Services from "../services/services";
 
 /**
-
-*/
+ * updates user object to filter out canceled appointment from
+ * array of appointments currently in user's state
+ * @param {integer} id - appointment primary key ID
+ */
 export function cancelAppointment(id) {
 
   return async function(dispatch) {
     try {
-      // await Services.updateAppointments(id);
+      await Services.updateAppointments(id);
       dispatch(removeAppointment(id));
     } catch(e) {
       console.log("HIT cancel appointment error: ", e);
