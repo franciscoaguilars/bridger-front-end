@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import getCurrentUser from '../services/services';
+// import getCurrentUser from '../services/services';
+import { useSelector } from 'react-redux';
 
 const CreateTutor = () => {
 
   const [tutor, setTutor] = useState({});
   const history = useHistory();
-  const currentUser = getCurrentUser();
+  // const currentUser = getCurrentUser();
+  const currentUser = useSelector(store => store.user);
 
   const handleSubmit = (e) => {
     e.preventDefault();

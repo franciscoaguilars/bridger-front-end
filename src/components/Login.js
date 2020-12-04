@@ -1,11 +1,15 @@
 import axios from 'axios';
 import react, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { getUser } from '../creators/userCreator';
+import { useDispatch } from 'react-redux';
+
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const history = useHistory();
+    const dispatch = useDispatch();
 
 
   const handleOnSubmit = (e) => {
@@ -14,21 +18,24 @@ const Login = () => {
     console.log(email);
     console.log(password);
 
-    axios.post('http://localhost:3000/login',
-    {
-      email: email,
-      password: password
-    })
-    .then(resp => {
-      console.log(resp);
-      if(resp.data.error){
-        alert(resp.data.error)
-      } else {
-        localStorage.setItem("token", resp.data.token);
-        localStorage.setItem("user", JSON.stringify(resp.data.user));
-        history.push("/me");
-      }
-    })
+    dispatch(getUser(email, password))
+    history.push("/me");
+
+    // axios.post('http://localhost:3000/login',
+    // {
+    //   email: email,
+    //   password: password
+    // })
+    // .then(resp => {
+    //   console.log(resp);
+    //   if(resp.data.error){
+    //     alert(resp.data.error)
+    //   } else {
+    //     localStorage.setItem("token", resp.data.token);
+    //     localStorage.setItem("user", JSON.stringify(resp.data.user));
+    //     history.push("/me");
+    //   }
+    // })
   }
 
 
