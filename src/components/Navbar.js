@@ -1,6 +1,8 @@
 import react from 'react';
 import { Link } from 'react-router-dom';
-import getCurrentUser from '../services/services';
+// import getCurrentUser from '../services/services';
+import { useSelector } from 'react-redux';
+
 
 const Navbar = () => {
 
@@ -10,7 +12,8 @@ const Navbar = () => {
   };
   
 
-  const currentUser = getCurrentUser();
+  // const currentUser = getCurrentUser();
+    const currentUser = useSelector(store => store.user);
 
   const PageLinks = () => {
     if(currentUser) {

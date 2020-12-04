@@ -1,10 +1,12 @@
 import react from 'react';
-import getCurrentUser from '../../services/services';
+// import getCurrentUser from '../../services/services';
+import { useSelector } from 'react-redux';
 import axios from 'axios';
 
 const Appointment = (props) => {
 
-  const currentUser = getCurrentUser();
+  const currentUser = useSelector(store => store.user);
+  // const currentUser = getCurrentUser();
   const studentName = props.appointment.student_id;
   const tutorName = props.appointment.tutor_id;
   console.log(props.appointment);

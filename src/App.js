@@ -1,5 +1,5 @@
 import axios from 'axios';
-import AuthService from './services/services';
+import AuthService from './services/Services';
 import './sass/App.scss';
 import { Switch, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
