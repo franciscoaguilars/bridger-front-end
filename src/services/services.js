@@ -13,32 +13,11 @@ class Services {
       [verb === "get" ? "params" : "data"]: paramsOrData}));
   };
 
-//////////////////////////////////////  SET USER TO LOCAL STORAGE  //////////////////////////////////////
-
-  // static getCurrentUser = () => {
-  //   return JSON.parse(localStorage.getItem("user"));
-  // };
-
 //////////////////////////////////////  GET USER FROM LOGIN  //////////////////////////////////////
 
   static async login(email, password) {
 
-    //     axios.post('http://localhost:3000/login',
-    // {
-    //   email: email,
-    //   password: password
-    // })
-    // .then(resp => {
-    //   console.log(resp);
-    //   if(resp.data.error){
-    //     alert(resp.data.error)
-    //   } else {
-    //     localStorage.setItem("token", resp.data.token);
-    //     localStorage.setItem("user", JSON.stringify(resp.data.user));
-    //     history.push("/me");
-    //   }
-    // })
-    let res = await this.request("login", {email, password});
+    let res = await this.request("login", {email, password}, "post");
     console.log("res from login: ", res);
     const token = res.data.token;
     const user = res.data.user;
@@ -47,7 +26,13 @@ class Services {
     return user;
   };
 
-}
+//////////////////////////////////////  CANCEL APPOINTMENT  //////////////////////////////////////
+
+  static async updateAppointments(id) {
+    await this.request(`api/v1/appointments/${id}`, "delete");
+  };
+
+};
 
 
 export default Services;

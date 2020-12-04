@@ -1,33 +1,38 @@
 import react from 'react';
 // import getCurrentUser from '../../services/services';
-import { useSelector } from 'react-redux';
-import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux';
+import { cancelAppointment } from '../../creators/cancelAppointmentCreator';
 
-const Appointment = (props) => {
+const Appointment = ({appointment}) => {
+
 
   const currentUser = useSelector(store => store.user);
   // const currentUser = getCurrentUser();
-  const studentName = props.appointment.student_id;
-  const tutorName = props.appointment.tutor_id;
-  console.log(props.appointment);
+  const studentName = appointment.student_id;
+  const tutorName = appointment.tutor_id;
+  const dispatch = useDispatch();
+  console.log(appointment);
 
   const handleCancel = () => {
-    const newList = props.appointmentList.filter(appointment => appointment.id !== props.appointment.id);
-    props.updateAppointments(newList);
-    const url = 'http://localhost:3000/api/v1/appointments/'
-    axios.delete(`${url}${props.appointment.id}`)
+    console.log(currentUser);
+    // const newList = props.appointmentList.filter(appointment => appointment.id !== appointment.id);
+    // updateAppointments(newList);
+    // const url = 'http://localhost:3000/api/v1/appointments/'
+    // axios.delete(`${url}${appointment.id}`)
+    dispatch(cancelAppointment(appointment.id));
+    console.log(currentUser);
   };
 
   const AppointmentButtons = () => {
-    if (currentUser.role === "student" && props.appointment.student_id === null) {
+    if (currentUser.role === "student" && appointment.student_id === null) {
       return(
         <button className="btn btn-primary btn-block">Book Timeslot</button>
       )
-    } else if(currentUser.role === "tutor" && currentUser.tutor.id === props.appointment.tutor_id) {
+    } else if(currentUser.role === "tutor" && currentUser.tutor.id === appointment.tutor_id) {
       return (
         <button className="btn btn-primary btn-block" onClick={handleCancel}>Cancel</button>
       )
-    } else if(currentUser.role === "student" && props.appointment.student_id) {
+    } else if(currentUser.role === "student" && appointment.student_id) {
       return (
         <button className="btn btn-primary btn-block" onClick={handleCancel}>Cancel</button>
       )
@@ -37,9 +42,9 @@ const Appointment = (props) => {
   }
 
   const ShowStudent = () => {
-    if(currentUser.role === "tutor" && props.appointment.student_id){
+    if(currentUser.role === "tutor" && appointment.student_id){
       return <small>{`with ${studentName}`}</small>
-    } else if(currentUser.role === "student" && props.appointment.student_id) {
+    } else if(currentUser.role === "student" && appointment.student_id) {
       return <small>{`with ${tutorName}`}</small>
     } else {
       return null
@@ -50,7 +55,7 @@ const Appointment = (props) => {
   
   return(
     <div className="appointment-card">
-      <p>{props.appointment.date}</p>
+      <p>{appointment.date}</p>
       <ShowStudent />
       <AppointmentButtons />
     </div>

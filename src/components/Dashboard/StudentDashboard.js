@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Appointment from '../Appointments/Appointment';
+import { useSelector } from 'react-redux';
 
-const StudentDashboard = (props) => {
+const StudentDashboard = () => {
 
-  const [appointments, setAppointments] = useState(props.attributes.student.appointments);
-  console.log(props);
-  
+  const currentUser = useSelector(store => store.user);
+  const appointments = currentUser.student.appointments;
 
   const appointmentGrid = appointments.map(appointment => {
     return(
       <div>
-        <Appointment appointmentList={appointments} appointment={appointment} updateAppointments={setAppointments} />
+        <Appointment key={appointment.id} appointmentList={appointments} appointment={appointment}  />
       </div>
     )
   });
 
   return(
     <div>
-      <h2 className="mb-4">{`Welcome to the Student Dashboard, ${props.attributes.student.first_name}`}</h2>
+      <h2 className="mb-4">{`Welcome to the Student Dashboard, ${currentUser.student.first_name}`}</h2>
       <div className="row">
         <div className="col-lg-6 col-sm-12">
           <h4 className="mb-4">My Appointments</h4>

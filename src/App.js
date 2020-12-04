@@ -1,7 +1,10 @@
 import axios from 'axios';
-import AuthService from './services/Services';
+import React, { useEffect } from 'react';
+// import AuthService from './services/Services';
 import './sass/App.scss';
 import { Switch, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from './creators/addUser';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import SignUp from './components/SignUp';
@@ -15,6 +18,18 @@ import Partners from './components/Partners/Partners';
 import Footer from './components/Footer';
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const getUser = () => {
+      const user = localStorage.getItem("user");
+      if (user) {
+        dispatch(addUser(JSON.parse(user)));
+      }
+    };
+    getUser();
+  }, []);
 
   return (
     <div className="App">

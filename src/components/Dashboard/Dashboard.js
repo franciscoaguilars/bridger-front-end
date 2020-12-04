@@ -7,23 +7,20 @@ import AdminDashboard from './AdminDashboard';
 
 const Dashboard = () => {
 
-  // const currentUser = getCurrentUser();
   const currentUser = useSelector(store => store.user);
-  console.log(currentUser.role);
-  
 
   const DisplayDashboard = () => {
     if(currentUser.role === "student"){
       return(
-        <StudentDashboard attributes={currentUser} />
+        <StudentDashboard  />
       )
     } else if(currentUser.role === "tutor") {
       return(
-        <TutorDashboard attributes={currentUser} />
+        <TutorDashboard  />
       )
     } else {
       return(
-        <AdminDashboard attributes={currentUser} />
+        <AdminDashboard  />
       )   
     }
   }
