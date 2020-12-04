@@ -10,12 +10,9 @@ export default function resultsReducer(state=INITIAL_STATE, action) {
     case RESET_USER:
       return {email: "", password: "", role: ""};
     case CANCEL_APPOINTMENT:
-      console.log(action.id);
+      console.log(action.appointments);
       console.log(state.student.appointments);
-      const appointments = state.student.appointments.filter(appointment => {
-        return appointment.id !== action.id;
-      });
-      return {...state, appointments: appointments};
+      return {...state, appointments: action.appointments};
     default:
       return state;
   };

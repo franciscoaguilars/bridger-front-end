@@ -3,7 +3,7 @@ import react from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cancelAppointment } from '../../creators/cancelAppointmentCreator';
 
-const Appointment = ({appointment}) => {
+const Appointment = ({appointment, appointmentList}) => {
 
 
   const currentUser = useSelector(store => store.user);
@@ -15,11 +15,9 @@ const Appointment = ({appointment}) => {
 
   const handleCancel = () => {
     console.log(currentUser);
-    // const newList = props.appointmentList.filter(appointment => appointment.id !== appointment.id);
-    // updateAppointments(newList);
-    // const url = 'http://localhost:3000/api/v1/appointments/'
-    // axios.delete(`${url}${appointment.id}`)
-    dispatch(cancelAppointment(appointment.id));
+    appointmentList.filter(appt => appt.id !== appointment.id);
+    console.log(appointments);
+    dispatch(cancelAppointment(appointments));
     console.log(currentUser);
   };
 
