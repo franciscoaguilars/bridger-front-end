@@ -6,7 +6,7 @@ import { bookAppointment } from '../../creators/bookAppointmentCreator';
 
 const Appointment = ({appointment}) => {
 
-  const currentUser = useSelector(store => store.user.user);
+  const currentUser = useSelector(store => store.user);
   // const currentUser = getCurrentUser();
   const studentName = appointment.student_id;
   const tutorName = appointment.tutor_id;

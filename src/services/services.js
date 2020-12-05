@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
-
+// const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "https://fierce-chamber-92750.herokuapp.com/";
 class Services {
 
 //////////////////////////////////////  REQUEST METHOD  //////////////////////////////////////
@@ -20,17 +20,35 @@ class Services {
     let res = await this.request("login", {email, password}, "post");
     console.log("res from login: ", res);
     const token = res.data.token;
-    const user = res.data.user;
+    const userObj = res.data.user;
+    let user;
+
+    if (userObj && userObj.student) {
+      user = userObj.student;
+      //SHOULD WE BE STORING THE PASSWORD IN LOCAL STORAGE? IS THAT SAFE?
+      user["password"] = password;
+      user["email"] = email;
+      user["token"] = token;
+      user["role"] = "student";
+    } else if (userObj && userObj.tutor) {
+      user = userObj.tutor;
+      //SHOULD WE BE STORING THE PASSWORD IN LOCAL STORAGE? IS THAT SAFE?
+      user["password"] = password;
+      user["email"] = email;
+      user["token"] = token;
+      user["role"] = "tutor";
+    };
+
     localStorage.setItem("token", token);
     localStorage.setItem("user", JSON.stringify(user));
-    user["token"] = token;
+
     console.log("user from login: ", user);
     return user;
   };
 
 //////////////////////////////////////  CANCEL APPOINTMENT  //////////////////////////////////////
 
-  static async deleteAppointments(id) {
+  static async removeAppointments(id) {
     await this.request(`api/v1/appointments/${id}`, {}, "delete");
   };
 
@@ -51,6 +69,16 @@ class Services {
     user["token"] = token;
     console.log("user from getLoggedInUser: ", user);
     return user;
+  };
+
+//////////////////////////////////////  GET TUTORS/APPOINTMENTS  //////////////////////////////////////
+
+  static async getTutorsAppointments() {
+    let res = await this.request(`api/v1/tutors.json`);
+    console.log("res from getTutorsAppointments: ", res);
+    const tutors = res.data.tutors;
+    console.log("user from getTutorsAppointments: ", tutors);
+    return tutors;
   };
 
 };
