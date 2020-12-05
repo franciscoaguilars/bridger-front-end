@@ -9,11 +9,12 @@ const Navbar = () => {
   const logOut = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
+    localStorage.removeItem("userId")
   };
   
 
   // const currentUser = getCurrentUser();
-    const currentUser = useSelector(store => store.user);
+    const currentUser = useSelector(store => store.user.user);
 
   const PageLinks = () => {
     if(currentUser) {

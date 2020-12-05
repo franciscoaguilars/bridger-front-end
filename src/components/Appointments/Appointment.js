@@ -1,12 +1,12 @@
-import react from 'react';
+import React, { useEffect } from 'react';
 // import getCurrentUser from '../../services/services';
 import { useSelector, useDispatch } from 'react-redux';
 import { cancelAppointment } from '../../creators/cancelAppointmentCreator';
+import { bookAppointment } from '../../creators/bookAppointmentCreator';
 
-const Appointment = ({appointment, appointmentList}) => {
+const Appointment = ({appointment}) => {
 
-
-  const currentUser = useSelector(store => store.user);
+  const currentUser = useSelector(store => store.user.user);
   // const currentUser = getCurrentUser();
   const studentName = appointment.student_id;
   const tutorName = appointment.tutor_id;
@@ -17,10 +17,14 @@ const Appointment = ({appointment, appointmentList}) => {
     dispatch(cancelAppointment(appointment.id));
   };
 
+  const bookAppointment = () => {
+    dispatch(bookAppointment(appointment.id, currentUser.student.id));
+  }
+
   const AppointmentButtons = () => {
     if (currentUser.role === "student" && appointment.student_id === null) {
       return(
-        <button className="btn btn-primary btn-block">Book Timeslot</button>
+        <button onClick={bookAppointment} className="btn btn-primary btn-block">Book Timeslot</button>
       )
     } else if(currentUser.role === "tutor" && currentUser.tutor.id === appointment.tutor_id) {
       return (

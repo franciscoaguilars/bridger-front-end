@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = process.env.REACT_APP_BASE_URL || "https://fierce-chamber-92750.herokuapp.com";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
 
 class Services {
 
@@ -21,6 +21,8 @@ class Services {
     console.log("res from login: ", res);
     const token = res.data.token;
     const user = res.data.user;
+    localStorage.setItem("token", token);
+    localStorage.setItem("user", JSON.stringify(user));
     user["token"] = token;
     console.log("user from login: ", user);
     return user;
@@ -28,11 +30,17 @@ class Services {
 
 //////////////////////////////////////  CANCEL APPOINTMENT  //////////////////////////////////////
 
-  static async updateAppointments(id) {
+  static async deleteAppointments(id) {
     await this.request(`api/v1/appointments/${id}`, {}, "delete");
   };
 
-//////////////////////////////////////  CANCEL APPOINTMENT  //////////////////////////////////////
+  //////////////////////////////////// BOOK APPOINTMENT ////////////////////////
+
+  static async addStudentToAppointment(id, student_id) {
+    await this.request(`api/v1/appointments/${id}`, { student_id }, "put");
+  }
+
+//////////////////////////////////////  GETTING USER  //////////////////////////////////////
 
   static async getLoggedInUser(id, token) {
     console.log("id", id);

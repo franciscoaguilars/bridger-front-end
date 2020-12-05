@@ -1,13 +1,14 @@
 import react from 'react';
 import StudentDashboard from './StudentDashboard';
-// import getCurrentUser from '../../services/services';
 import { useSelector } from 'react-redux';
 import TutorDashboard from './TutorDashboard';
 import AdminDashboard from './AdminDashboard';
 
 const Dashboard = () => {
 
-  const currentUser = useSelector(store => store.user);
+  const currentUser = useSelector(store => store.user.user);
+  console.log(currentUser);
+  
 
   const DisplayDashboard = () => {
     if(currentUser.role === "student"){

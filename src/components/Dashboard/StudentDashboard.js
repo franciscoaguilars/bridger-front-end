@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 const StudentDashboard = () => {
 
-  const currentUser = useSelector(store => store.user);
+  const currentUser = useSelector(store => store.user.user);
   const appointments = currentUser.student.appointments;
 
   const appointmentGrid = appointments.map(appointment => {

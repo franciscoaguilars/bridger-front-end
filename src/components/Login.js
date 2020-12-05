@@ -31,8 +31,6 @@ const Login = () => {
     //   if(resp.data.error){
     //     alert(resp.data.error)
     //   } else {
-    //     localStorage.setItem("token", resp.data.token);
-    //     localStorage.setItem("user", JSON.stringify(resp.data.user));
     //     history.push("/me");
     //   }
     // })

@@ -3,8 +3,7 @@ import React, { useEffect } from 'react';
 import Services from './services/services';
 import './sass/App.scss';
 import { Switch, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { addUser } from './creators/addUser';
+import { useDispatch, useSelector } from 'react-redux';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import SignUp from './components/SignUp';
@@ -20,19 +19,14 @@ import Footer from './components/Footer';
 function App() {
 
   const dispatch = useDispatch();
+  const currentUser = useSelector(store => store.user.user);
 
   useEffect(() => {
     const getUser = async () => {
-      const userId = localStorage.getItem("userId");
-      const token = localStorage.getItem("token");
-      if (userId) {
- 
-        const user = await Services.getLoggedInUser(JSON.parse(userId), JSON.parse(token));
-        dispatch(addUser(user));
-      };
+     localStorage.setItem('user', JSON.stringify(currentUser));
     };
     getUser();
-  }, []);
+  }, [currentUser]);
 
   return (
     <div className="App">

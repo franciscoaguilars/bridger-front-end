@@ -8,7 +8,7 @@ const Tutors = () => {
   const [tutors, setTutors] = useState([])
 
   useEffect(()=> {
-    const url = 'https://fierce-chamber-92750.herokuapp.com/api/v1/tutors.json'
+    const url = 'http://localhost:3000/api/v1/tutors.json'
     axios.get(url, {
       headers: {"Authorization" : `Bearer ${localStorage.token}`}
     })
