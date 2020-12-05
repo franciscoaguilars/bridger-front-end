@@ -1,12 +1,15 @@
 import react from 'react';
 import Appointment from '../Appointments/Appointment';
+import { useSelector } from 'react-redux';
 
 
 const TutorDashboard = (props) => {
+  const currentUser = useSelector(store => store.user);
+  const appointments = currentUser.appointments;
   console.log(props);
   
 
-  const unbookedAppointments = props.attributes.tutor.appointments.map(appointment => {
+  const unbookedAppointments = currentUser.appointments.map(appointment => {
     if(!appointment.student_id){
       return(
         <Appointment appointment={appointment}/>
@@ -17,7 +20,7 @@ const TutorDashboard = (props) => {
     
   });
 
-  const bookedAppointments = props.attributes.tutor.appointments.map(appointment => {
+  const bookedAppointments = currentUser.appointments.map(appointment => {
     if(appointment.student_id){
       return(
         <Appointment appointment={appointment}/>
@@ -29,7 +32,7 @@ const TutorDashboard = (props) => {
 
   return(
     <div>
-      <h2 className="mb-4">{`Welcome to the Tutor Dashboard, ${props.attributes.tutor.first_name}`}</h2>
+      <h2 className="mb-4">{`Welcome to the Tutor Dashboard, ${currentUser.first_name}`}</h2>
       <div className="row">
         <div className="col-lg-6 col-sm-12">
           <h4>My Appointments</h4>

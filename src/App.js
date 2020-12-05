@@ -19,11 +19,11 @@ import Footer from './components/Footer';
 function App() {
 
   const dispatch = useDispatch();
-  const currentUser = useSelector(store => store.user.user);
+  const currentUser = useSelector(store => store.user);
 
   useEffect(() => {
     const getUser = async () => {
-     localStorage.setItem('user', JSON.stringify(currentUser));
+      localStorage.setItem('user', JSON.stringify(currentUser));
     };
     getUser();
   }, [currentUser]);

@@ -1,23 +1,25 @@
 import React, {useState, useEffect} from 'react';
+import {useDispatch} from 'react-redux';
+import Services from "../../services/services";
 import Tutor from './Tutor';
 import axios from 'axios';
 
 
 const Tutors = () => {
 
-  const [tutors, setTutors] = useState([])
+  const [tutors, setTutors] = useState([]);
+  const disptach = useDispatch();
 
   useEffect(()=> {
-    const url = 'http://localhost:3000/api/v1/tutors.json'
-    axios.get(url, {
-      headers: {"Authorization" : `Bearer ${localStorage.token}`}
-    })
-    .then(
-      resp => {
-        setTutors(resp.data);
-        console.log(resp);
-      })
-    .catch( resp => console.log(resp) )
+    const getTutors = () => {
+      try{
+        const tutors = Services.getTutorsAppointments();
+        setTutors(tutors);
+      } catch(e) {
+        console.log("error in Tutors use effect, ", e);
+      };
+    };
+    getTutors();
   }, [])
 
   const tutorsGrid = tutors.map( tutor => {

@@ -14,7 +14,7 @@ const Navbar = () => {
   
 
   // const currentUser = getCurrentUser();
-    const currentUser = useSelector(store => store.user.user);
+    const currentUser = useSelector(store => store.user);
 
   const PageLinks = () => {
     if(currentUser) {

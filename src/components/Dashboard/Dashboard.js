@@ -6,7 +6,7 @@ import AdminDashboard from './AdminDashboard';
 
 const Dashboard = () => {
 
-  const currentUser = useSelector(store => store.user.user);
+  const currentUser = useSelector(store => store.user);
   console.log(currentUser);
   
 
