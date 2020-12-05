@@ -1,25 +1,25 @@
-import {BOOK_APPOINTMENT} from "../actionTypes";
+import {GET_TUTORS} from "../actionTypes";
 import Services from "../services/services";
 /**
  * updates appointment object to add student_id to the appointment (book an 
  * appointment)
  * @param {integer} id - appointment primary key student_id
  */
-export function bookAppointment(appointment_id, student_id) {
+export function getTutors() {
 
   return async function(dispatch) {
     try {
-      await Services.addStudentToAppointment(appointment_id, student_id);
-      dispatch(reserveAppointment(appointment_id));
+      const tutors = await Services.fetchTutors();
+      dispatch(getAllTutors(tutors));
     } catch(e) {
-      console.log("HIT book appointment error: ", e);
+      console.log("HIT get tutors error: ", e);
       // dispatch(updateCancelAppointmentError(true));
     };
   };
 };
 
-function reserveAppointment(id) {
-  return {type: BOOK_APPOINTMENT, id};
+function getAllTutors(tutors) {
+  return {type: GET_TUTORS, tutors};
 };
 
 // function updateCancelAppointmentError(id) {

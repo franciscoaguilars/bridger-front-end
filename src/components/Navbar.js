@@ -1,15 +1,18 @@
 import react from 'react';
 import { Link } from 'react-router-dom';
 // import getCurrentUser from '../services/services';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { resetUser } from '../creators/resetUserCreator';
 
 
 const Navbar = () => {
+  const dispatch = useDispatch();
 
   const logOut = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
-    localStorage.removeItem("userId")
+    localStorage.removeItem("userId");
+    dispatch(resetUser());
   };
   
 
@@ -17,7 +20,7 @@ const Navbar = () => {
     const currentUser = useSelector(store => store.user);
 
   const PageLinks = () => {
-    if(currentUser) {
+    if(currentUser.role) {
       return(
         <ul className="navbar-nav">
             <li className="nav-item">
@@ -49,7 +52,7 @@ const Navbar = () => {
   }
 
   const SessionLinks = () => {
-    if(currentUser) {
+    if(currentUser.role) {
       return(
         <ul className="navbar-nav ml-auto">
             <li className="nav-item">

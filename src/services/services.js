@@ -25,14 +25,14 @@ class Services {
 
     if (userObj && userObj.student) {
       user = userObj.student;
-      //SHOULD WE BE STORING THE PASSWORD IN LOCAL STORAGE? IS THAT SAFE?
+      //SHOULD WE BE STORING THE PASSWORD IN LOCAL STORAGE? IS THAT SAFE? NO :)
       user["password"] = password;
       user["email"] = email;
       user["token"] = token;
       user["role"] = "student";
     } else if (userObj && userObj.tutor) {
       user = userObj.tutor;
-      //SHOULD WE BE STORING THE PASSWORD IN LOCAL STORAGE? IS THAT SAFE?
+      //SHOULD WE BE STORING THE PASSWORD IN LOCAL STORAGE? IS THAT SAFE? NO :)
       user["password"] = password;
       user["email"] = email;
       user["token"] = token;
@@ -46,6 +46,16 @@ class Services {
     return user;
   };
 
+////////////////////////////////////// GET TUTORS FROM BACKEND ///////////////////////////////////
+
+static async fetchTutors() {
+      let res = await this.request(`api/v1/tutors.json`);
+      console.log("res from getTutorsAppointments: ", res);
+      const tutors = res.data;
+      console.log("tutors from getTutorsAppointments: ", tutors);
+      return tutors;
+    };
+
 //////////////////////////////////////  CANCEL APPOINTMENT  //////////////////////////////////////
 
   static async removeAppointments(id) {
@@ -54,8 +64,8 @@ class Services {
 
   //////////////////////////////////// BOOK APPOINTMENT ////////////////////////
 
-  static async addStudentToAppointment(id, student_id) {
-    await this.request(`api/v1/appointments/${id}`, { student_id }, "put");
+  static async addStudentToAppointment(appt_id, student_id) {
+    await this.request(`api/v1/appointments/${appt_id}`, { student_id }, "put");
   }
 
 //////////////////////////////////////  GETTING USER  //////////////////////////////////////
@@ -69,6 +79,14 @@ class Services {
     user["token"] = token;
     console.log("user from getLoggedInUser: ", user);
     return user;
+  };
+
+//////////////////////////////////////  GETTING PARTNERS  //////////////////////////////////////
+
+  static async getPartners() {
+    let res = await this.request(`api/v1/partners.json`);
+    console.log("res from getPartners: ", res);
+    return res.data;
   };
 
 //////////////////////////////////////  GET TUTORS/APPOINTMENTS  //////////////////////////////////////

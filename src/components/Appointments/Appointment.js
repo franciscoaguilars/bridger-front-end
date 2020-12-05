@@ -17,16 +17,16 @@ const Appointment = ({appointment}) => {
     dispatch(cancelAppointment(appointment.id));
   };
 
-  const bookAppointment = () => {
-    dispatch(bookAppointment(appointment.id, currentUser.student.id));
+  const handleBookAppointment = () => {
+    dispatch(bookAppointment(appointment.id, currentUser.id)); // passing student ID
   }
 
   const AppointmentButtons = () => {
     if (currentUser.role === "student" && appointment.student_id === null) {
       return(
-        <button onClick={bookAppointment} className="btn btn-primary btn-block">Book Timeslot</button>
+        <button onClick={handleBookAppointment} className="btn btn-primary btn-block">Book Timeslot</button>
       )
-    } else if(currentUser.role === "tutor" && currentUser.tutor.id === appointment.tutor_id) {
+    } else if(currentUser.role === "tutor" && currentUser.id === appointment.tutor_id) {
       return (
         <button className="btn btn-primary btn-block" onClick={handleCancel}>Cancel</button>
       )

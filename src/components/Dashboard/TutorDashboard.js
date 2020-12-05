@@ -3,13 +3,12 @@ import Appointment from '../Appointments/Appointment';
 import { useSelector } from 'react-redux';
 
 
-const TutorDashboard = (props) => {
+const TutorDashboard = () => {
   const currentUser = useSelector(store => store.user);
   const appointments = currentUser.appointments;
-  console.log(props);
-  
 
-  const unbookedAppointments = currentUser.appointments.map(appointment => {
+
+  const unbookedAppointments = appointments.map(appointment => {
     if(!appointment.student_id){
       return(
         <Appointment appointment={appointment}/>
@@ -20,7 +19,7 @@ const TutorDashboard = (props) => {
     
   });
 
-  const bookedAppointments = currentUser.appointments.map(appointment => {
+  const bookedAppointments = appointments.map(appointment => {
     if(appointment.student_id){
       return(
         <Appointment appointment={appointment}/>
@@ -36,21 +35,21 @@ const TutorDashboard = (props) => {
       <div className="row">
         <div className="col-lg-6 col-sm-12">
           <h4>My Appointments</h4>
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a class="nav-link active" id="about-tab" data-toggle="tab" href={`#unbooked-${props.attributes.id}`} role="tab" aria-controls="about" aria-selected="true">Available</a>
+          <ul className="nav nav-tabs" id="myTab" role="tablist">
+            <li className="nav-item">
+              <a className="nav-link active" id="about-tab" data-toggle="tab" href={`#unbooked-${currentUser.id}`} role="tab" aria-controls="about" aria-selected="true">Available</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" id="appointments-tab" data-toggle="tab" href={`#booked-${props.attributes.id}`} role="tab" aria-controls="appointments" aria-selected="false">Booked</a>
+            <li className="nav-item">
+              <a className="nav-link" id="appointments-tab" data-toggle="tab" href={`#booked-${currentUser.id}`} role="tab" aria-controls="appointments" aria-selected="false">Booked</a>
             </li>
           </ul>
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active py-4" id={`unbooked-${props.attributes.id}`} role="tabpanel" aria-labelledby="about">
+          <div className="tab-content" id="myTabContent">
+            <div className="tab-pane fade show active py-4" id={`unbooked-${currentUser.id}`} role="tabpanel" aria-labelledby="about">
               <div className="appointments-grid">
               {unbookedAppointments}
               </div>
             </div>
-            <div class="tab-pane fade py-4" id={`booked-${props.attributes.id}`}     role="tabpanel" aria-labelledby="appointments">
+            <div className="tab-pane fade py-4" id={`booked-${currentUser.id}`}     role="tabpanel" aria-labelledby="appointments">
               <div className="appointments-grid">
                 {bookedAppointments}
               </div>

@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     const getUser = async () => {
-      localStorage.setItem('user', JSON.stringify(currentUser));
+        localStorage.setItem('user', JSON.stringify(currentUser));
     };
     getUser();
   }, [currentUser]);
