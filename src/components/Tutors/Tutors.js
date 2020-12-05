@@ -10,16 +10,29 @@ const Tutors = () => {
   const [tutors, setTutors] = useState([]);
   const disptach = useDispatch();
 
+  // useEffect(()=> {
+  //   const getTutors = () => {
+  //     try{
+  //       const tutors = Services.getTutorsAppointments();
+  //       setTutors(tutors);
+  //     } catch(e) {
+  //       console.log("error in Tutors use effect, ", e);
+  //     };
+  //   };
+  //   getTutors();
+  // }, [])
+
   useEffect(()=> {
-    const getTutors = () => {
-      try{
-        const tutors = Services.getTutorsAppointments();
-        setTutors(tutors);
-      } catch(e) {
-        console.log("error in Tutors use effect, ", e);
-      };
-    };
-    getTutors();
+    const url = 'http://localhost:3000/api/v1/tutors.json'
+    axios.get(url, {
+      headers: {"Authorization" : `Bearer ${localStorage.token}`}
+    })
+    .then(
+      resp => {
+        setTutors(resp.data);
+        console.log(resp);
+      })
+    .catch( resp => console.log(resp) )
   }, [])
 
   const tutorsGrid = tutors.map( tutor => {
