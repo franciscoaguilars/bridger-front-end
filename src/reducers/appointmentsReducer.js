@@ -1,8 +1,5 @@
 import {BOOK_APPOINTMENT, ADD_APPOINTMENTS, CANCEL_APPOINTMENT, CREATE_APPOINTMENT, UPDATE_APPOINTMENT, DELETE_APPOINTMENT} from "../actionTypes";
 
-// let { student: { appointments }} = JSON.parse(localStorage.getItem('user'));
-// const INITIAL_STATE = appointments ? appointments : {};
-// console.log(appointments);
 let user;
 try {
   user = JSON.parse(localStorage.getItem('user'));
@@ -11,7 +8,6 @@ try {
   console.log("HIT error; ", e);
 };
 const INITIAL_STATE = {};
-
 
 export default function resultsReducer(state=INITIAL_STATE, action) {
   switch(action.type) {

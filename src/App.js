@@ -41,6 +41,7 @@ function App() {
           <Route exact path="/partners" component={Partners} />
           <Route exact path="/students/create" component={CreateStudent} />
           <Route exact path="/tutors/create" component={CreateTutor} />
+          <Route exact path="/appointments/create" component={CreateAppointment} />
         </Switch>
       <Footer />
     </div>
