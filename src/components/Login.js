@@ -2,7 +2,7 @@ import axios from 'axios';
 import react, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { getUser } from '../creators/userCreator';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const Login = () => {
@@ -10,6 +10,7 @@ const Login = () => {
     const [password, setPassword] = useState("");
     const history = useHistory();
     const dispatch = useDispatch();
+    const currentUser = useSelector(store => store.user)
 
 
   const handleOnSubmit = (e) => {

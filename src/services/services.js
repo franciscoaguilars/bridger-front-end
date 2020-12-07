@@ -23,7 +23,10 @@ class Services {
     const userObj = res.data.user;
     let user;
 
-    if (userObj && userObj.student) {
+
+    if(!userObj){
+      alert(res.data.error)
+    } else if (userObj && userObj.student) {
       user = userObj.student;
       //SHOULD WE BE STORING THE PASSWORD IN LOCAL STORAGE? IS THAT SAFE? NO :)
       user["password"] = password;
@@ -55,6 +58,12 @@ static async fetchTutors() {
       console.log("tutors from getTutorsAppointments: ", tutors);
       return tutors;
     };
+
+//////////////////////////////////////  CREATE APPOINTMENT  //////////////////////////////////////
+
+static async createAppointment(appointment) {
+  await this.request(`api/v1/appointments`, { appointment }, "post");
+};
 
 //////////////////////////////////////  CANCEL APPOINTMENT  //////////////////////////////////////
 

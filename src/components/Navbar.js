@@ -7,17 +7,15 @@ import { resetUser } from '../creators/resetUserCreator';
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const currentUser = useSelector(store => store.user);
 
   const logOut = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     dispatch(resetUser());
+    console.log(currentUser);
   };
-  
-
-  // const currentUser = getCurrentUser();
-    const currentUser = useSelector(store => store.user);
 
   const PageLinks = () => {
     if(currentUser.role) {

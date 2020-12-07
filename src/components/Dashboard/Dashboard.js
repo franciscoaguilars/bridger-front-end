@@ -19,10 +19,14 @@ const Dashboard = () => {
       return(
         <TutorDashboard  />
       )
-    } else {
+    } else if(currentUser.role === "admin") {
       return(
         <AdminDashboard  />
       )   
+    } else {
+      return(
+        "Please sign up or log in to see your dashboard."
+      )
     }
   }
 
