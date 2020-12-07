@@ -19,16 +19,32 @@ const SignUp = () => {
     console.log(('user:', user));
   }
 
+  const onImageChange = (e) => { 
+    e.preventDefault();
+    setUser({...user, avatar: e.target.files[0] });
+    console.log(('user: ', user));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(user);
+    const formData = new FormData();
+    formData.append('email', user.email);
+    formData.append('password', user.password);
+    formData.append('role', user.role);
+    formData.append('avatar', user.avatar);
 
-    axios.post('http://localhost:3000/users',
-    {
-      email: user.email,
-      password: user.password,
-      role: user.role
-    })
+    const config = {     
+      headers: { 'content-type': 'multipart/form-data' }
+  }
+
+    for (var value of formData.values()) {
+    console.log(value); 
+    }
+    
+
+    axios.post('https://fierce-chamber-92750.herokuapp.com/users',
+    formData, config )
     .then(resp => {
       console.log(resp);
       if(resp.data.error){
@@ -40,7 +56,6 @@ const SignUp = () => {
       }
     })
   }
-
  
   const roleOptions = ["student", "tutor"].map( (role, index) => {
     return(
@@ -59,17 +74,21 @@ const SignUp = () => {
     <div className="container">
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label for="email">Email Address</label>
+          <label htmlFor="email">Email Address</label>
           <input onChange={handleChange} name="email" type="text" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email"></input>
           <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div className="form-group">
-          <label for="password">Password</label>
+          <label htmlFor="password">Password</label>
           <input onChange={handleChange} name="password" type="password" className="form-control" id="password" placeholder="Enter password"></input>
           <small id="emailHelp" className="form-text text-muted">Your password must contain: 1) Minimum 8 characters, 2) One Uppercase Letter, 3) One Number</small>
         </div>
         <div className="mb-3">
           {roleOptions}
+        </div>
+        <div className="form-group">
+          <label className="mr-2" htmlFor="avatar">Upload a Profile Picture:</label>
+          <input onChange={onImageChange} type="file" id="avatar" name="avatar" accept="image/*" multiple={false} />
         </div>
         
         <button className="btn btn-primary">Sign Up</button>
