@@ -26,7 +26,8 @@ export default function resultsReducer(state=INITIAL_STATE, action) {
     case UPDATE_APPOINTMENT:
       return {};
     case CREATE_APPOINTMENT:
-      return {};
+      console.log(state);
+      return state;
     default:
       return state;
   };

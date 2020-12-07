@@ -1,6 +1,8 @@
 import react from 'react';
 import Appointment from '../Appointments/Appointment';
 import { useSelector } from 'react-redux';
+import { BsPlusCircle } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 
 const TutorDashboard = () => {
@@ -34,7 +36,12 @@ const TutorDashboard = () => {
       <h2 className="mb-4">{`Welcome to the Tutor Dashboard, ${currentUser.first_name}`}</h2>
       <div className="row">
         <div className="col-lg-6 col-sm-12">
-          <h4>My Appointments</h4>
+          <div className="tutor-dashboard-header">
+            <h4 className="mr-1">My Appointments</h4>
+            <Link to="/appointments/create"><BsPlusCircle className="mb-2" /></Link>
+
+            
+          </div>
           <ul className="nav nav-tabs" id="myTab" role="tablist">
             <li className="nav-item">
               <a className="nav-link active" id="about-tab" data-toggle="tab" href={`#unbooked-${currentUser.id}`} role="tab" aria-controls="about" aria-selected="true">Available</a>

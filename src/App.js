@@ -13,6 +13,7 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Tutors from './components/Tutors/Tutors';
 import CreateStudent from './components/CreateStudent';
 import CreateTutor from './components/CreateTutor';
+import CreateAppointment from './components/Appointments/CreateAppointment';
 import Partners from './components/Partners/Partners';
 import Footer from './components/Footer';
 
