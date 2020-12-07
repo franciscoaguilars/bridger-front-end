@@ -1,4 +1,4 @@
-import {GET_USER, RESET_USER, BOOK_APPOINTMENT, CANCEL_APPOINTMENT, CREATE_APPOINTMENT, UPDATE_APPOINTMENT} from "../actionTypes";
+import {CREATE_STUDENT, GET_USER, RESET_USER, BOOK_APPOINTMENT, CANCEL_APPOINTMENT, CREATE_APPOINTMENT, UPDATE_APPOINTMENT, CREATE_TUTOR} from "../actionTypes";
 
 let user;
 try {
@@ -11,6 +11,12 @@ const INITIAL_STATE = user ? user : {};
 
 export default function resultsReducer(state=INITIAL_STATE, action) {
   switch(action.type) {
+    case CREATE_STUDENT:
+      console.log(action.user);
+      return action.user
+    case CREATE_TUTOR:
+      console.log(action.user);
+      return action.user
     case GET_USER:
       return action.user
     case RESET_USER:

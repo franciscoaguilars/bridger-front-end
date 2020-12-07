@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const TutorDashboard = () => {
   const currentUser = useSelector(store => store.user);
-  const appointments = currentUser.appointments;
+  const appointments = currentUser.appointments || [];
 
 
   const unbookedAppointments = appointments.map(appointment => {

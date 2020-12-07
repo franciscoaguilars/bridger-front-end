@@ -20,7 +20,7 @@ class Services {
     let res = await this.request("login", {email, password}, "post");
     console.log("res from login: ", res);
     const token = res.data.token;
-    const userObj = res.data.user;
+    const userObj = res.data.user;  
     let user;
 
 
@@ -48,6 +48,50 @@ class Services {
     console.log("user from login: ", user);
     return user;
   };
+
+////////////////////////////////////// CREATE STUDENT ////////////////////////////////////////////
+
+static async createStudent(student) {
+  let res = await this.request(`api/v1/students`, { student }, "post");
+  console.log("res from create student: ", res);
+  const userObj = res.data.user;
+  let user;
+
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  user = userObj.student;
+  user["email"] = currentUser.email;
+  user["role"] = currentUser.role;
+  user["password"] = currentUser.password;
+  user["user_id"] = currentUser.id;
+  user["avatar"] = currentUser.avatar;
+
+  localStorage.setItem("user", JSON.stringify(user));
+  console.log(user);
+  return user;
+
+};
+
+  ////////////////////////////////////// CREATE TUTOR ////////////////////////////////////////////
+
+static async createTutor(tutor) {
+  let res = await this.request(`api/v1/tutors`, { tutor }, "post");
+  console.log("res from create tutor: ", res);
+  if(res.data.error){
+    alert(res.data.error)
+  } else {
+    const userObj = res.data.user;
+    let user;
+    const currentUser = JSON.parse(localStorage.getItem("user"));
+    user = userObj.tutor;
+    user["email"] = currentUser.email;
+    user["role"] = currentUser.role;
+    user["password"] = currentUser.password;
+    user["user_id"] = currentUser.id;
+    localStorage.setItem("user", JSON.stringify(user));
+    console.log(user);
+    return user;
+  }
+};
 
 ////////////////////////////////////// GET TUTORS FROM BACKEND ///////////////////////////////////
 
