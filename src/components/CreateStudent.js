@@ -20,16 +20,6 @@ const CreateStudent = () => {
     console.log(student);
     dispatch(createStudent(student));
     history.push("/me");
-    // axios.post('https://fierce-chamber-92750.herokuapp.com/api/v1/students', student )
-    // .then(resp => {
-    //   console.log(resp);
-    //   if(resp.data.error){
-    //     alert(resp.data.error)
-    //   } else {
-    //     localStorage.setItem("user", JSON.stringify(resp.data.user));
-    //     history.push("/me");
-    //   }
-    // })
   }
 
   const handleChange = (e) => {

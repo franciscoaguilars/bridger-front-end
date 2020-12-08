@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
-const BASE_URL = process.env.REACT_APP_BASE_URL || "https://fierce-chamber-92750.herokuapp.com/";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "https://fierce-chamber-92750.herokuapp.com";
 class Services {
 
 //////////////////////////////////////  REQUEST METHOD  //////////////////////////////////////
@@ -60,12 +60,13 @@ static async createStudent(student) {
   let user;
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
+  const avatar = JSON.parse(localStorage.getItem("avatar"));
   user = userObj.student;
   user["email"] = currentUser.email;
   user["role"] = currentUser.role;
   user["password"] = currentUser.password;
   user["user_id"] = currentUser.id;
-  user["avatar"] = currentUser.avatar;
+  user["avatar"] = avatar;
 
   localStorage.setItem("user", JSON.stringify(user));
   console.log(user);

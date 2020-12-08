@@ -33,14 +33,12 @@ const SignUp = () => {
     formData.append('password', user.password);
     formData.append('role', user.role);
     formData.append('avatar', user.avatar);
-    const config = {     
-      headers: { 'content-type': 'multipart/form-data' }
-  }
+   
     for (var value of formData.values()) {
     console.log(value); 
     }
     axios.post('https://fierce-chamber-92750.herokuapp.com/users',
-    formData, config )
+    formData )
     .then(resp => {
       console.log(resp);
       if(resp.data.error){
@@ -48,6 +46,7 @@ const SignUp = () => {
       } else {
         localStorage.setItem("token", resp.data.token);
         localStorage.setItem("user", JSON.stringify(resp.data.user));
+        localStorage.setItem("avatar",resp.data.avatar);
         user.role === "student" ? history.push("/students/create") : history.push("/tutors/create");
       }
     })
@@ -65,7 +64,6 @@ const SignUp = () => {
     
   })
   
-
   return (
     <div className="container">
       <form onSubmit={handleSubmit}>
