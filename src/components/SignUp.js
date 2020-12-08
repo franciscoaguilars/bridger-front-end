@@ -33,16 +33,12 @@ const SignUp = () => {
     formData.append('password', user.password);
     formData.append('role', user.role);
     formData.append('avatar', user.avatar);
-
     const config = {     
       headers: { 'content-type': 'multipart/form-data' }
   }
-
     for (var value of formData.values()) {
     console.log(value); 
     }
-    
-
     axios.post('https://fierce-chamber-92750.herokuapp.com/users',
     formData, config )
     .then(resp => {
@@ -98,6 +94,3 @@ const SignUp = () => {
 }
 
 export default SignUp;
-
-
-// checked={user.role === role}

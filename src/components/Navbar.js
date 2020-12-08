@@ -54,9 +54,7 @@ const Navbar = () => {
       return(
         <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              {/* <img src={currentUser} /> */}
-
-             <Link className="nav-link" to="/signin" onClick={logOut}><img src={currentUser.avatar} alt="Logout" /></Link>
+             <Link className="nav-link" to="/signin" onClick={logOut}>Log Out</Link>
             </li>
         </ul>
       )

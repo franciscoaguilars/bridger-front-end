@@ -54,6 +54,8 @@ class Services {
 static async createStudent(student) {
   let res = await this.request(`api/v1/students`, { student }, "post");
   console.log("res from create student: ", res);
+  console.log(res.data.user.avatar);
+  
   const userObj = res.data.user;
   let user;
 
@@ -67,6 +69,8 @@ static async createStudent(student) {
 
   localStorage.setItem("user", JSON.stringify(user));
   console.log(user);
+  console.log(user.avatar);
+  
   return user;
 
 };
