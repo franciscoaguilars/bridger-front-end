@@ -60,7 +60,8 @@ static async createStudent(student) {
   let user;
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
-  const avatar = JSON.parse(localStorage.getItem("avatar"));
+  const avatar = localStorage.getItem("avatar");
+  console.log(avatar);
   user = userObj.student;
   user["email"] = currentUser.email;
   user["role"] = currentUser.role;

@@ -46,7 +46,7 @@ const SignUp = () => {
       } else {
         localStorage.setItem("token", resp.data.token);
         localStorage.setItem("user", JSON.stringify(resp.data.user));
-        localStorage.setItem("avatar",resp.data.avatar);
+        localStorage.setItem("avatar", resp.data.avatar);
         user.role === "student" ? history.push("/students/create") : history.push("/tutors/create");
       }
     })
