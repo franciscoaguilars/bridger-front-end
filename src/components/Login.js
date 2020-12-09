@@ -22,19 +22,6 @@ const Login = () => {
     dispatch(getUser(email, password))
     history.push("/me");
 
-    // axios.post('http://localhost:3000/login',
-    // {
-    //   email: email,
-    //   password: password
-    // })
-    // .then(resp => {
-    //   console.log(resp);
-    //   if(resp.data.error){
-    //     alert(resp.data.error)
-    //   } else {
-    //     history.push("/me");
-    //   }
-    // })
   }
 
 
