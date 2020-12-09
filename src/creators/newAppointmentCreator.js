@@ -1,4 +1,4 @@
-import {CREATE_APPOINTMENT} from "../actionTypes";
+import {CREATE_APPOINTMENT, CREATE_APPOINTMENT_ERROR} from "../actionTypes";
 import Services from "../services/services";
 /**
  * updates user object to filter out canceled appointment from
@@ -12,8 +12,8 @@ export function createAppointment(appointment) {
       await Services.createAppointment(appointment);
       dispatch(setAppointment(appointment));
     } catch(e) {
-      console.log("HIT cancel appointment error: ", e);
-      // dispatch(updateDeleteAppointmentError(true));
+      console.log("HIT create appointment error: ", e);
+      dispatch(updateCreateAppointmentError());
     };
   };
 };
@@ -22,6 +22,6 @@ function setAppointment(appointment) {
   return {type: CREATE_APPOINTMENT, appointment};
 };
 
-// function updateDeleteAppointmentError(id) {
-//   return {type: UPDATE_DELETE_APPOINTMENT_ERROR, id};
-// };
+function updateCreateAppointmentError(id) {
+  return {type: CREATE_APPOINTMENT_ERROR};
+};

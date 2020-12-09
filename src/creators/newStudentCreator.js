@@ -1,4 +1,4 @@
-import {CREATE_STUDENT} from "../actionTypes";
+import {CREATE_STUDENT, CREATE_STUDENT_ERROR} from "../actionTypes";
 import Services from "../services/services";  
 /**
  * updates user object to filter out canceled appointment from
@@ -13,7 +13,7 @@ export function createStudent(student) {
       dispatch(makeStudent(user));
     } catch(e) {
       console.log("HIT create student error: ", e);
-      // dispatch(updateDeleteAppointmentError(true));
+      dispatch(updateCreateStudentError(true));
     };
   };
 };
@@ -22,6 +22,6 @@ function makeStudent(user) {
   return {type: CREATE_STUDENT, user};
 };
 
-// function updateDeleteAppointmentError(id) {
-//   return {type: UPDATE_DELETE_APPOINTMENT_ERROR, id};
-// };
+function updateCreateStudentError(id) {
+  return {type: CREATE_STUDENT_ERROR};
+};
