@@ -1,4 +1,12 @@
-import {CREATE_STUDENT, GET_USER, RESET_USER, BOOK_APPOINTMENT, CANCEL_APPOINTMENT, CREATE_APPOINTMENT, UPDATE_APPOINTMENT, CREATE_TUTOR} from "../actionTypes";
+import {
+  CREATE_STUDENT,
+  LOGIN_USER,
+  RESET_USER,
+  BOOK_APPOINTMENT,
+  CANCEL_APPOINTMENT,
+  CREATE_APPOINTMENT,
+  CREATE_TUTOR
+} from "../actionTypes";
 
 let user;
 try {
@@ -17,7 +25,7 @@ export default function resultsReducer(state=INITIAL_STATE, action) {
     case CREATE_TUTOR:
       console.log(action.user);
       return action.user
-    case GET_USER:
+    case LOGIN_USER:
       return action.user
     case RESET_USER:
       return {};
@@ -29,8 +37,6 @@ export default function resultsReducer(state=INITIAL_STATE, action) {
       console.log(state);
       console.log(action.id);
       return {...state, appointments: state.appointments.filter(appt => appt.id !== action.id)};
-    case UPDATE_APPOINTMENT:
-      return {};
     case CREATE_APPOINTMENT:
       console.log(state);
       return state;

@@ -1,4 +1,4 @@
-import {CREATE_TUTOR} from "../actionTypes";
+import {CREATE_TUTOR, CREATE_TUTOR_ERROR} from "../actionTypes";
 import Services from "../services/services";  
 /**
  * updates user object to filter out canceled appointment from
@@ -13,7 +13,7 @@ export function createTutor(tutor) {
       dispatch(makeTutor(user));
     } catch(e) {
       console.log("HIT create tutor error: ", e);
-      // dispatch(updateDeleteAppointmentError(true));
+      dispatch(updateCreateTutorError());
     };
   };
 };
@@ -22,6 +22,6 @@ function makeTutor(user) {
   return {type: CREATE_TUTOR, user};
 };
 
-// function updateDeleteAppointmentError(id) {
-//   return {type: UPDATE_DELETE_APPOINTMENT_ERROR, id};
-// };
+function updateCreateTutorError() {
+  return {type: CREATE_TUTOR_ERROR};
+};

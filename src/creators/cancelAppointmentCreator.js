@@ -1,4 +1,4 @@
-import {CANCEL_APPOINTMENT, UPDATE_CANCEL_APPOINTMENT_ERROR} from "../actionTypes";
+import {CANCEL_APPOINTMENT, CANCEL_APPOINTMENT_ERROR} from "../actionTypes";
 import Services from "../services/services";
 /**
  * updates user object to filter out canceled appointment from
@@ -13,7 +13,7 @@ export function cancelAppointment(id) {
       dispatch(updatingAppointments(id));
     } catch(e) {
       console.log("HIT cancel appointment error: ", e);
-      // dispatch(updateCancelAppointmentError(true));
+      dispatch(updateCancelAppointmentError());
     };
   };
 };
@@ -22,6 +22,6 @@ function updatingAppointments(id) {
   return {type: CANCEL_APPOINTMENT, id};
 };
 
-// function updateCancelAppointmentError(id) {
-//   return {type: UPDATE_CANCEL_APPOINTMENT_ERROR, id};
-// };
+function updateCancelAppointmentError() {
+  return {type: CANCEL_APPOINTMENT_ERROR};
+};

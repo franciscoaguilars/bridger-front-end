@@ -1,4 +1,4 @@
-import {GET_TUTORS} from "../actionTypes";
+import {GET_TUTORS, GET_TUTORS_ERROR} from "../actionTypes";
 import Services from "../services/services";
 /**
  * updates appointment object to add student_id to the appointment (book an 
@@ -13,7 +13,7 @@ export function getTutors() {
       dispatch(getAllTutors(tutors));
     } catch(e) {
       console.log("HIT get tutors error: ", e);
-      // dispatch(updateCancelAppointmentError(true));
+      dispatch(updateGetTutorsError());
     };
   };
 };
@@ -22,6 +22,6 @@ function getAllTutors(tutors) {
   return {type: GET_TUTORS, tutors};
 };
 
-// function updateCancelAppointmentError(id) {
-//   return {type: UPDATE_CANCEL_APPOINTMENT_ERROR, id};
-// };
+function updateGetTutorsError() {
+  return {type: GET_TUTORS_ERROR};
+};
