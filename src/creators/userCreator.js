@@ -1,4 +1,4 @@
-import {GET_USER, UPDATE_USER_ERROR} from "../actionTypes";
+import {LOGIN_USER, LOGIN_ERROR} from "../actionTypes";
 import Services from "../services/services";
 
 /**
@@ -14,15 +14,15 @@ export function getUser(email, password) {
       dispatch(updateUser(user));
     } catch(e) {
       console.log("HIT login error: ", e);
-      // dispatch(updateGetUserError(true));
+      dispatch(updateLoginError());
     };
   };
 };
 
 function updateUser(user) {
-  return {type: GET_USER, user};
+  return {type: LOGIN_USER, user};
 };
 
-function updateGetUserError(userError) {
-  return {type: UPDATE_USER_ERROR, userError};
+function updateLoginError() {
+  return {type: LOGIN_ERROR};
 };

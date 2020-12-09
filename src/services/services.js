@@ -25,7 +25,7 @@ class Services {
 
 
     if(!userObj){
-      alert(res.data.error)
+      // alert(res.data.error)
     } else if (userObj && userObj.student) {
       user = userObj.student;
       //SHOULD WE BE STORING THE PASSWORD IN LOCAL STORAGE? IS THAT SAFE? NO :)
