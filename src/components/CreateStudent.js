@@ -16,9 +16,22 @@ const CreateStudent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('clicked');
     console.log(student);
-    dispatch(createStudent(student));
+    const formData = new FormData();
+    for (var value of formData.values()) {
+      console.log(value); 
+      }
+    formData.append('avatar', student.avatar);
+    formData.append('first_name', student.first_name);
+    formData.append('last_name', student.last_name);
+    formData.append('city', student.city);
+    formData.append('state', student.state);
+    formData.append('country', student.country);
+    formData.append('phone_number', student.school);
+    formData.append('occupation', student.occupation);
+    formData.append('linked_in_link', student.linked_in_link);
+
+    dispatch(createStudent(formData));
     history.push("/me");
   }
 
@@ -27,10 +40,20 @@ const CreateStudent = () => {
     console.log(('student:', student));
   }
 
+  const onImageChange = (e) => { 
+    e.preventDefault();
+    setStudent({...student, avatar: e.target.files[0] });
+    console.log(('student: ', student));
+  };
+
   return(
     <div className="container">
       <h2 className="mb-4">Create Your Student Profile</h2>
       <form onSubmit={handleSubmit} className="mb-4">
+        <div className="form-group">
+          <label className="mr-2" htmlFor="avatar">Upload a Profile Picture:</label>
+          <input onChange={onImageChange} type="file" id="avatar" name="avatar" accept="image/*" multiple={false} />
+        </div>
         <div className="form-group">
           <label htmlFor="firstName">First Name</label>
           <input onChange={handleChange} name="first_name" type="text" className="form-control" id="firstName" aria-describedby="emailHelp" placeholder="First Name"></input>
@@ -55,7 +78,6 @@ const CreateStudent = () => {
           <label htmlFor="school">School</label>
           <input onChange={handleChange} name="school" type="text" className="form-control" id="school" placeholder="School"></input>
         </div>
-        <input onChange={handleChange} type="hidden" id="user" name="user" value={currentUser.id}></input>
         <button className="btn btn-primary">Sign Up</button>
       </form>
     </div>
