@@ -43,7 +43,14 @@ class Services {
       user["token"] = token;
       user["role"] = "tutor";
       user["avatar"] = avatar;
-    };
+    } else if (userObj) {
+      user = userObj;
+      //SHOULD WE BE STORING THE PASSWORD IN LOCAL STORAGE? IS THAT SAFE? NO :)
+      user["password"] = password;
+      user["email"] = email;
+      user["token"] = token;
+      user["role"] = "admin";
+    }
 
     localStorage.setItem("token", token);
     localStorage.setItem("user", JSON.stringify(user));

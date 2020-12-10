@@ -3,10 +3,13 @@ import TutorModal from './TutorModal';
 
 
 const Tutor = (props) => {
+  const localUrl = "http://localhost:3000"
+  const herokuUrl = "https://fierce-chamber-92750.herokuapp.com"
+
   return (
     <div className="tutor-card">
       <div>
-        <img className="tutor-card-image" src={`http://localhost:3000/${props.tutor.avatar}`}/>
+        <img className="tutor-card-image" src={`${localUrl}/${props.tutor.avatar}`}/>
       </div>
       <div className="tutor-card-details">
         <h5>{`${props.tutor.first_name} ${props.tutor.last_name}`}</h5>

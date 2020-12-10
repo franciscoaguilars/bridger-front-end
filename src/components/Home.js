@@ -29,7 +29,7 @@ const Home = () => {
             <FaChalkboardTeacher size={64} />
           </div>
           <div className="how-it-works-card"> 
-            <p>3. Schedule a video chat and get going!</p>
+            <p>3. Schedule a tutoring session and get going!</p>
             <BiVideo size={64} />
           </div>
         </div>

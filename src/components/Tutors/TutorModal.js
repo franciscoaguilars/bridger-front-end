@@ -4,7 +4,8 @@ import Appointment from '../Appointments/Appointment';
 const TutorModal = (props) => {
 
   const [appointments, setAppointments] = useState(props.attributes.appointments);
-  
+  const localUrl = "http://localhost:3000"
+  const herokuUrl = "https://fierce-chamber-92750.herokuapp.com"
 
   const appointmentGrid = appointments.map(appointment => {
       if(appointment.student_id === null) {
@@ -25,7 +26,7 @@ const TutorModal = (props) => {
             <div className="modal-header">
             <div className="tutor-card">
               <div>
-                <img className="tutor-modal-image" src={`http://localhost:3000/${props.attributes.avatar}`}/>
+                <img className="tutor-modal-image" src={`${localUrl}/${props.attributes.avatar}`}/>
               </div>
               <div className="tutor-card-details">
                 <h5>{`${props.attributes.first_name} ${props.attributes.last_name}`}</h5>
