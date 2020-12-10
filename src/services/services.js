@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
-const BASE_URL = process.env.REACT_APP_BASE_URL || "https://fierce-chamber-92750.herokuapp.com";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
+// const BASE_URL = process.env.REACT_APP_BASE_URL || "https://fierce-chamber-92750.herokuapp.com";
 class Services {
 
 //////////////////////////////////////  REQUEST METHOD  //////////////////////////////////////
@@ -21,6 +21,7 @@ class Services {
     console.log("res from login: ", res);
     const token = res.data.token;
     const userObj = res.data.user;  
+    const avatar = res.data.avatar;
     let user;
 
 
@@ -33,6 +34,7 @@ class Services {
       user["email"] = email;
       user["token"] = token;
       user["role"] = "student";
+      user["avatar"] = avatar;
     } else if (userObj && userObj.tutor) {
       user = userObj.tutor;
       //SHOULD WE BE STORING THE PASSWORD IN LOCAL STORAGE? IS THAT SAFE? NO :)
@@ -40,6 +42,7 @@ class Services {
       user["email"] = email;
       user["token"] = token;
       user["role"] = "tutor";
+      user["avatar"] = avatar;
     };
 
     localStorage.setItem("token", token);
@@ -51,17 +54,21 @@ class Services {
 
 ////////////////////////////////////// CREATE STUDENT ////////////////////////////////////////////
 
-static async createStudent(student) {
-  console.log(student);
+static async createStudent(formData) {
+  for (var pair of formData.entries()) {
+    console.log(pair[0]+ ', ' + pair[1]); 
+}
   
-  let res = await this.request(`api/v1/students`, { student }, "post");
+  let res = await this.request(`api/v1/students`, formData, "post");
   console.log("res from create student: ", res);
   
-  const userObj = res.data.user;
+  const studentAvatar = res.data.avatar;
+  const studentObj = res.data.user;
   let user;
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
-  user = userObj.student;
+  user = studentObj.student;
+  user["avatar"] = studentAvatar;
   user["email"] = currentUser.email;
   user["role"] = currentUser.role;
   user["password"] = currentUser.password;
@@ -69,7 +76,6 @@ static async createStudent(student) {
 
   localStorage.setItem("user", JSON.stringify(user));
   console.log(user);
-  console.log(user.avatar);
   
   return user;
 
@@ -77,24 +83,28 @@ static async createStudent(student) {
 
   ////////////////////////////////////// CREATE TUTOR ////////////////////////////////////////////
 
-static async createTutor(tutor) {
-  let res = await this.request(`api/v1/tutors`, { tutor }, "post");
+static async createTutor(formData) {
+  for (var pair of formData.entries()) {
+    console.log(pair[0]+ ', ' + pair[1]); 
+}
+
+  let res = await this.request(`api/v1/tutors`, formData, "post");
   console.log("res from create tutor: ", res);
-  console.log(res.data.user.avatar);
   
-  const userObj = res.data.user;
+  const tutorAvatar = res.data.avatar;
+  const tutorObj = res.data.user;
   let user;
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
-  user = userObj.tutor;
+  user = tutorObj.tutor;
   user["email"] = currentUser.email;
   user["role"] = currentUser.role;
   user["password"] = currentUser.password;
   user["user_id"] = currentUser.id;
+  user["avatar"] = tutorAvatar;
 
   localStorage.setItem("user", JSON.stringify(user));
   console.log(user);
-  console.log(user.avatar);
   
   return user;
 

@@ -53,8 +53,13 @@ const Navbar = () => {
     if(currentUser.role) {
       return(
         <ul className="navbar-nav ml-auto">
-            <li className="nav-item">
-             <Link className="nav-link" to="/signin" onClick={logOut}>Log Out</Link>
+            <li className="dropdown">
+              <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <img className="nav-avatar" alt="logout" src={`http://localhost:3000/${currentUser.avatar}`}/>
+              </a>
+              <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <Link className="dropdown-item" to="/signin" onClick={logOut}> Logout</Link>
+              </div>
             </li>
         </ul>
       )
@@ -75,7 +80,7 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light">
-      <Link className="navbar-brand" to="/">Bridger</Link>
+      <Link className="navbar-brand" to="/">The   Smart Reach</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>

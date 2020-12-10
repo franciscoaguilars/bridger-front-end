@@ -15,16 +15,20 @@ const CreateTutor = () => {
     e.preventDefault();
     console.log(tutor);
     const formData = new FormData();
-    formData.append('avatar', tutor.avatar);
-    formData.append('first_name', tutor.first_name);
-    formData.append('last_name', tutor.last_name);
-    formData.append('city', tutor.city);
-    formData.append('state', tutor.state);
-    formData.append('country', tutor.country);
-    formData.append('phone_number', tutor.phone_number);
-    formData.append('occupation', tutor.occupation);
-    formData.append('linked_in_link', tutor.linked_in_link);
-  
+    formData.append('tutor[avatar]', tutor.avatar);
+    formData.append('tutor[first_name]', tutor.first_name);
+    formData.append('tutor[last_name]', tutor.last_name);
+    formData.append('tutor[city]', tutor.city);
+    formData.append('tutor[state]', tutor.state);
+    formData.append('tutor[country]', tutor.country);
+    formData.append('tutor[phone_number]', tutor.phone_number);
+    formData.append('tutor[occupation]', tutor.occupation);
+    formData.append('tutor[linked_in_link]', tutor.linked_in_link);
+    formData.append('tutor[user_id]', currentUser.id); 
+
+    for (var pair of formData.entries()) {
+      console.log(pair[0]+ ', ' + pair[1]); 
+    }
     dispatch(createTutor(formData));
     history.push("/me");
   }
