@@ -9,7 +9,7 @@ const Tutor = (props) => {
   return (
     <div className="tutor-card">
       <div>
-        <img className="tutor-card-image" src={`${localUrl}/${props.tutor.avatar}`}/>
+        <img className="tutor-card-image" src={`${herokuUrl}/${props.tutor.avatar}`}/>
       </div>
       <div className="tutor-card-details">
         <h5>{`${props.tutor.first_name} ${props.tutor.last_name}`}</h5>

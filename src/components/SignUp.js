@@ -6,6 +6,8 @@ const SignUp = () => {
 
   const [user, setUser] = useState({});
   const history = useHistory();
+  const localUrl = "http://localhost:3000"
+  const herokuUrl = "https://fierce-chamber-92750.herokuapp.com"
 
 
   const setRole = (e) => {
@@ -28,7 +30,7 @@ const SignUp = () => {
     formData.append('role', user.role);
     
     
-    axios.post('http://localhost:3000/users',
+    axios.post(`${herokuUrl}/users`,
     formData )
     .then(resp => {
       console.log(resp);
