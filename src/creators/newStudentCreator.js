@@ -1,11 +1,11 @@
 import {CREATE_STUDENT, CREATE_STUDENT_ERROR} from "../actionTypes";
 import Services from "../services/services";  
 
-export function createStudent(studentData) {
+export function createStudent(formData) {
 
   return async function(dispatch) {
     try {
-      const user = await Services.createStudent(studentData);
+      const user = await Services.createStudent(formData);
       dispatch(makeStudent(user));
     } catch(e) {
       console.log("HIT create student error: ", e);

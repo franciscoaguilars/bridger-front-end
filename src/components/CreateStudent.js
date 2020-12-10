@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createStudent } from '../creators/newStudentCreator';
+import axios from 'axios';
 
 
 const CreateStudent = () => {
@@ -18,19 +19,20 @@ const CreateStudent = () => {
     e.preventDefault();
     console.log(student);
     const formData = new FormData();
-    for (var value of formData.values()) {
-      console.log(value); 
-      }
-    formData.append('avatar', student.avatar);
-    formData.append('first_name', student.first_name);
-    formData.append('last_name', student.last_name);
-    formData.append('city', student.city);
-    formData.append('state', student.state);
-    formData.append('country', student.country);
-    formData.append('phone_number', student.school);
-    formData.append('occupation', student.occupation);
-    formData.append('linked_in_link', student.linked_in_link);
+    
+    formData.append('student[avatar]', student.avatar);
+    formData.append('student[first_name]', student.first_name);
+    formData.append('student[last_name]', student.last_name);
+    formData.append('student[city]', student.city);
+    formData.append('student[state]', student.state);
+    formData.append('student[country]', student.country);
+    formData.append('student[school]', student.school);
+    formData.append('student[user_id]', currentUser.id);  
 
+    for (var pair of formData.entries()) {
+      console.log(pair[0]+ ', ' + pair[1]); 
+  }
+    
     dispatch(createStudent(formData));
     history.push("/me");
   }

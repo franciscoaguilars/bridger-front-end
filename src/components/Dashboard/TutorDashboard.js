@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Appointment from '../Appointments/Appointment';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { BsPlusCircle } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 
@@ -9,13 +9,6 @@ const TutorDashboard = () => {
 
   const currentUser = useSelector(store => store.user);
   const appointments = currentUser.appointments || [];
-  const dispatch = useDispatch();
-  useEffect(() => {
-    const getUser = async () => {
-        localStorage.setItem('user', JSON.stringify(currentUser));
-    };
-    getUser();
-  }, [currentUser]);
 
   const unbookedAppointments = appointments.map(appointment => {
     if(!appointment.student_id){

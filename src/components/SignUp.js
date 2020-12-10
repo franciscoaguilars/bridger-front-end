@@ -26,10 +26,9 @@ const SignUp = () => {
     formData.append('email', user.email);
     formData.append('password', user.password);
     formData.append('role', user.role);
-    formData.append('avatar', user.avatar);
-   
     
-    axios.post('https://fierce-chamber-92750.herokuapp.com/users',
+    
+    axios.post('http://localhost:3000/users',
     formData )
     .then(resp => {
       console.log(resp);
