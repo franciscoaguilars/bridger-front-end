@@ -24,8 +24,8 @@ const TutorModal = (props) => {
           <div className="modal-content">
             <div className="modal-header">
             <div className="tutor-card">
-              <div className="tutor-modal-image">
-
+              <div>
+                <img className="tutor-modal-image" src={`http://localhost:3000/${props.attributes.avatar}`}/>
               </div>
               <div className="tutor-card-details">
                 <h5>{`${props.attributes.first_name} ${props.attributes.last_name}`}</h5>

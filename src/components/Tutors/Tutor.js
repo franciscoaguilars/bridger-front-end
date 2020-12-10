@@ -5,18 +5,18 @@ import TutorModal from './TutorModal';
 const Tutor = (props) => {
   return (
     <div className="tutor-card">
-      <div className="tutor-card-image">
-
+      <div>
+        <img className="tutor-card-image" src={`http://localhost:3000/${props.tutor.avatar}`}/>
       </div>
       <div className="tutor-card-details">
-        <h5>{`${props.attributes.first_name} ${props.attributes.last_name}`}</h5>
-        <small><strong>{props.attributes.occupation}</strong></small>
-        <small>{`${props.attributes.city}, ${props.attributes.state}, ${props.attributes.country}`}</small>
+        <h5>{`${props.tutor.first_name} ${props.tutor.last_name}`}</h5>
+        <small><strong>{props.tutor.occupation}</strong></small>
+        <small>{`${props.tutor.city}, ${props.tutor.state}, ${props.tutor.country}`}</small>
         
-        <a className="badge badge-primary mt-1" type="button" data-toggle="modal" data-target={`#modal-${props.attributes.id}`}>
+        <a className="badge badge-primary mt-1" type="button" data-toggle="modal" data-target={`#modal-${props.tutor.id}`}>
           See Details >>
         </a>
-        <TutorModal attributes={props.attributes} />
+        <TutorModal attributes={props.tutor} />
       </div>
     </div>
   )

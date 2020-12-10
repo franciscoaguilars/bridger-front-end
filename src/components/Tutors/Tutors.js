@@ -14,7 +14,7 @@ const Tutors = () => {
 
   const tutorsGrid = tutors.map( tutor => {
     return (
-          <Tutor key={tutor.id} attributes={tutor} />
+          <Tutor key={tutor.id} tutor={tutor} />
     )
   })
 

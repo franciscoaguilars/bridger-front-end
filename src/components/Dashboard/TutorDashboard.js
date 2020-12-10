@@ -35,12 +35,10 @@ const TutorDashboard = () => {
     <div>
       <h2 className="mb-4">{`Welcome to the Tutor Dashboard, ${currentUser.first_name}`}</h2>
       <div className="row">
-        <div className="col-lg-6 col-sm-12">
-          <div className="tutor-dashboard-header">
-            <h4 className="mr-1">My Appointments</h4>
+        <div className="col-lg-12 col-sm-12">
+          <div className="tutor-dashboard-header mb-2">
+            <h4 className="mr-2">My Appointments</h4>
             <Link to="/appointments/create"><BsPlusCircle className="mb-2" /></Link>
-
-            
           </div>
           <ul className="nav nav-tabs" id="myTab" role="tablist">
             <li className="nav-item">
@@ -62,9 +60,6 @@ const TutorDashboard = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="col-lg-6 col-sm-12">
-          <h4>My Students</h4>
         </div>
       </div>
     </div>

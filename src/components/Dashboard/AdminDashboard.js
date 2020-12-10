@@ -15,6 +15,11 @@ const AdminDashboard = () => {
           <h4>Tutors To Approve</h4>
         </div>
       </div>
+      <div className="row">
+        <div className="col-lg-6 col-sm-12">
+          <h4>Add a new partner</h4>
+        </div>
+      </div>
     </div>
   )
 }
