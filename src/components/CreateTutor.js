@@ -13,9 +13,19 @@ const CreateTutor = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('clicked');
-    console.log(currentUser);
-    dispatch(createTutor(tutor));
+    console.log(tutor);
+    const formData = new FormData();
+    formData.append('avatar', tutor.avatar);
+    formData.append('first_name', tutor.first_name);
+    formData.append('last_name', tutor.last_name);
+    formData.append('city', tutor.city);
+    formData.append('state', tutor.state);
+    formData.append('country', tutor.country);
+    formData.append('phone_number', tutor.phone_number);
+    formData.append('occupation', tutor.occupation);
+    formData.append('linked_in_link', tutor.linked_in_link);
+  
+    dispatch(createTutor(formData));
     history.push("/me");
   }
 
@@ -25,10 +35,20 @@ const CreateTutor = () => {
     console.log(('tutor:', tutor));
   }
 
+  const onImageChange = (e) => { 
+    e.preventDefault();
+    setTutor({...tutor, avatar: e.target.files[0] });
+    console.log(('tutor: ', tutor));
+  };
+
   return(
     <div className="container">
       <h2 className="mb-4">Create Your Tutor Profile</h2>
       <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label className="mr-2" htmlFor="avatar">Upload a Profile Picture:</label>
+          <input onChange={onImageChange} type="file" id="avatar" name="avatar" accept="image/*" multiple={false} />
+        </div>
         <div className="form-group">
           <label htmlFor="firstName">First Name</label>
           <input onChange={handleChange} name="first_name" type="text" className="form-control" id="firstName" aria-describedby="emailHelp" placeholder="Enter your first name"></input>

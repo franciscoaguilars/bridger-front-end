@@ -19,12 +19,6 @@ const SignUp = () => {
     console.log(('user:', user));
   }
 
-  const onImageChange = (e) => { 
-    e.preventDefault();
-    setUser({...user, avatar: e.target.files[0] });
-    console.log(('user: ', user));
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(user);
@@ -34,9 +28,7 @@ const SignUp = () => {
     formData.append('role', user.role);
     formData.append('avatar', user.avatar);
    
-    for (var value of formData.values()) {
-    console.log(value); 
-    }
+    
     axios.post('https://fierce-chamber-92750.herokuapp.com/users',
     formData )
     .then(resp => {
@@ -46,7 +38,7 @@ const SignUp = () => {
       } else {
         localStorage.setItem("token", resp.data.token);
         localStorage.setItem("user", JSON.stringify(resp.data.user));
-        localStorage.setItem("avatar", resp.data.avatar);
+        localStorage.setItem("avatar",resp.data.avatar);
         user.role === "student" ? history.push("/students/create") : history.push("/tutors/create");
       }
     })
@@ -79,10 +71,6 @@ const SignUp = () => {
         </div>
         <div className="mb-3">
           {roleOptions}
-        </div>
-        <div className="form-group">
-          <label className="mr-2" htmlFor="avatar">Upload a Profile Picture:</label>
-          <input onChange={onImageChange} type="file" id="avatar" name="avatar" accept="image/*" multiple={false} />
         </div>
         
         <button className="btn btn-primary">Sign Up</button>

@@ -52,22 +52,20 @@ class Services {
 ////////////////////////////////////// CREATE STUDENT ////////////////////////////////////////////
 
 static async createStudent(student) {
+  console.log(student);
+  
   let res = await this.request(`api/v1/students`, { student }, "post");
   console.log("res from create student: ", res);
-  console.log(res.data.user.avatar);
   
   const userObj = res.data.user;
   let user;
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
-  const avatar = localStorage.getItem("avatar");
-  console.log(avatar);
   user = userObj.student;
   user["email"] = currentUser.email;
   user["role"] = currentUser.role;
   user["password"] = currentUser.password;
   user["user_id"] = currentUser.id;
-  user["avatar"] = avatar;
 
   localStorage.setItem("user", JSON.stringify(user));
   console.log(user);
@@ -88,14 +86,11 @@ static async createTutor(tutor) {
   let user;
 
   const currentUser = JSON.parse(localStorage.getItem("user"));
-  const avatar = localStorage.getItem("avatar");
-  console.log(avatar);
   user = userObj.tutor;
   user["email"] = currentUser.email;
   user["role"] = currentUser.role;
   user["password"] = currentUser.password;
   user["user_id"] = currentUser.id;
-  user["avatar"] = avatar;
 
   localStorage.setItem("user", JSON.stringify(user));
   console.log(user);
