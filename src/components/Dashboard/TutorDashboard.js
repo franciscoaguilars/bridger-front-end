@@ -14,7 +14,7 @@ const TutorDashboard = () => {
 
   useEffect(() => {
     dispatch(getUser());
-  }, [appointments.length])
+  }, [])
 
   const unbookedAppointments = appointments.map(appointment => {
     if(!appointment.student_id){
