@@ -39,7 +39,7 @@ export default function resultsReducer(state=INITIAL_STATE, action) {
       return {...state, appointments: state.appointments.filter(appt => appt.id !== action.id)};
     case CREATE_APPOINTMENT:
       console.log(state);
-      return state;
+      return {...state, appointments: [...state.appointments, action.appointment]};
     default:
       return state;
   };

@@ -3,7 +3,6 @@ import Appointment from '../Appointments/Appointment';
 import { useSelector, useDispatch } from 'react-redux';
 import { BsPlusCircle } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import { getUser } from '../../creators/userCreator';
 
 
 const TutorDashboard = () => {
@@ -11,10 +10,6 @@ const TutorDashboard = () => {
   const currentUser = useSelector(store => store.user);
   const appointments = currentUser.appointments || [];
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getUser());
-  }, [])
 
   const unbookedAppointments = appointments.map(appointment => {
     if(!appointment.student_id){
@@ -56,7 +51,7 @@ const TutorDashboard = () => {
           </ul>
           <div className="tab-content" id="myTabContent">
             <div className="tab-pane fade show active py-4" id={`unbooked-${currentUser.id}`} role="tabpanel" aria-labelledby="about">
-              <div className="appointments-grid">
+              <div className="tutor-appointments">
               {unbookedAppointments}
               </div>
             </div>

@@ -16,7 +16,6 @@ class Services {
 //////////////////////////////////////  GET USER FROM LOGIN  //////////////////////////////////////
 
   static async login(email, password) {
-
     console.log(email, password);
     
     let res = await this.request("login", {email, password}, "post");

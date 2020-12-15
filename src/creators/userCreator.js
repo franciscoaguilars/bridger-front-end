@@ -14,7 +14,7 @@ export function getUser(email, password) {
       dispatch(updateUser(user));
     } catch(e) {
       console.log("HIT login error: ", e);
-      dispatch(updateLoginError());
+      // dispatch(updateLoginError());
     };
   };
 };

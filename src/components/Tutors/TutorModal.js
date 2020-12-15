@@ -53,7 +53,7 @@ const TutorModal = (props) => {
             <div className="tab-content" id="myTabContent">
               <div className="tab-pane fade show active py-4" id={`about-${props.attributes.id}`} role="tabpanel" aria-labelledby="about">{props.attributes.summary}</div>
               <div className="tab-pane fade" id={`appointments-${props.attributes.id}`} role="tabpanel" aria-labelledby="appointments">
-              <div className="appointments-grid">
+              <div className="tutor-appointments">
                 {appointmentGrid}
               </div>
               </div>

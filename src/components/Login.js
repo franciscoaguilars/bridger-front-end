@@ -1,5 +1,5 @@
 import axios from 'axios';
-import react, { useState } from 'react';
+import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { getUser } from '../creators/userCreator';
 import { useDispatch, useSelector } from 'react-redux';
