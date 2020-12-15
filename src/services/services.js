@@ -111,6 +111,23 @@ static async createTutor(formData) {
 
 };
 
+////////////////////////////////////// CREATE PARTNER ////////////////////////////////////////////
+
+static async createPartner(formData) {
+  for (var pair of formData.entries()) {
+    console.log(pair[0]+ ', ' + pair[1]); 
+}
+
+  let res = await this.request(`api/v1/partners`, formData, "post");
+  console.log("res from create partner: ", res);
+  const partnerImage = res.data.image;
+  let partner = res.data.partner;
+  partner["image"] = partnerImage;
+
+  console.log(partner);
+  return partner;
+};
+
 ////////////////////////////////////// GET TUTORS FROM BACKEND ///////////////////////////////////
 
 static async fetchTutors() {

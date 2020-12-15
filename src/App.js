@@ -12,6 +12,7 @@ import Tutors from './components/Tutors/Tutors';
 import CreateStudent from './components/CreateStudent';
 import CreateTutor from './components/CreateTutor';
 import CreateAppointment from './components/Appointments/CreateAppointment';
+import CreatePartner from './components/Partners/CreatePartner';
 import Partners from './components/Partners/Partners';
 import Footer from './components/Footer';
 import FlashMessage from "./components/FlashMessage";
@@ -105,6 +106,7 @@ function App() {
           <Route exact path="/students/create" component={CreateStudent} />
           <Route exact path="/tutors/create" component={CreateTutor} />
           <Route exact path="/appointments/create" component={CreateAppointment} />
+          <Route exact path="/partners/create" component={CreatePartner} />
         </Switch>
       <Footer />
     </div>

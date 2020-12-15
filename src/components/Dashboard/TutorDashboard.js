@@ -14,7 +14,7 @@ const TutorDashboard = () => {
   const unbookedAppointments = appointments.map(appointment => {
     if(!appointment.student_id){
       return(
-        <Appointment appointment={appointment}/>
+        <Appointment key={appointment.id} appointment={appointment}/>
     )
     } else {
       return null
@@ -25,7 +25,7 @@ const TutorDashboard = () => {
   const bookedAppointments = appointments.map(appointment => {
     if(appointment.student_id){
       return(
-        <Appointment appointment={appointment}/>
+        <Appointment key={appointment.id} appointment={appointment}/>
     )
     } else {
       return null

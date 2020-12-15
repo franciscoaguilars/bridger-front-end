@@ -53,8 +53,11 @@ const Appointment = ({appointment}) => {
   
   return(
     <div className="appointment-card">
-      <p>{appointment.date}</p>
-      <p>{appointment.time}</p>
+      <div className="appointment-card-details">
+        <div>{appointment.date}</div>
+        <div>{appointment.time}</div>
+      </div>
+      
       <ShowStudent />
       <AppointmentButtons />
     </div>

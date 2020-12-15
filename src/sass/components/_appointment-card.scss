@@ -2,12 +2,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   padding: 5px;
   margin: 10px;
   box-shadow: 2px 2px 2px gray;
   border-radius: 5px;
   background-color: #FFD6BA;
-  max-width: 180px;
+  width: 180px;
+  height: 125px;
+}
+
+.appointment-card-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tutor-appointments {

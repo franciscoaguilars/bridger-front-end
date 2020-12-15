@@ -25,6 +25,9 @@ export default function resultsReducer(state=INITIAL_STATE, action) {
     case CREATE_TUTOR:
       console.log(action.user);
       return action.user
+    // case CREATE_PARTNER:
+    //   console.log(action.user);
+    //   return action.user
     case LOGIN_USER:
       return action.user
     case RESET_USER:
