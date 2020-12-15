@@ -57,7 +57,7 @@ const Navbar = () => {
         <ul className="navbar-nav ml-auto">
             <li className="dropdown">
               <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img className="nav-avatar" alt="logout" src={`${herokuUrl}/${currentUser.avatar}`}/>
+                <img className="nav-avatar" alt="logout" src={`${localUrl}/${currentUser.avatar}`}/>
               </a>
               <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                 <Link className="dropdown-item" to="/signin" onClick={logOut}> Logout</Link>

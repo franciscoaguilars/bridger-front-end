@@ -1,7 +1,7 @@
 import axios from "axios";
 
-// const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
-const BASE_URL = process.env.REACT_APP_BASE_URL || "https://fierce-chamber-92750.herokuapp.com";
+const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3000";
+// const BASE_URL = process.env.REACT_APP_BASE_URL || "https://fierce-chamber-92750.herokuapp.com";
 class Services {
 
 //////////////////////////////////////  REQUEST METHOD  //////////////////////////////////////
@@ -17,6 +17,8 @@ class Services {
 
   static async login(email, password) {
 
+    console.log(email, password);
+    
     let res = await this.request("login", {email, password}, "post");
     console.log("res from login: ", res);
     const token = res.data.token;
@@ -43,13 +45,6 @@ class Services {
       user["token"] = token;
       user["role"] = "tutor";
       user["avatar"] = avatar;
-    } else if (userObj) {
-      user = userObj;
-      //SHOULD WE BE STORING THE PASSWORD IN LOCAL STORAGE? IS THAT SAFE? NO :)
-      user["password"] = password;
-      user["email"] = email;
-      user["token"] = token;
-      user["role"] = "admin";
     }
 
     localStorage.setItem("token", token);
