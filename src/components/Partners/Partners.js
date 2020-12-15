@@ -1,21 +1,15 @@
-import React, {useState, useEffect} from 'react';
-// import Tutor from './Tutor';
-import axios from 'axios';
+import React from 'react';
 import Partner from './Partner';
-import Services from '../../services/services';
+import {useDispatch, useSelector} from 'react-redux';
+import { getPartners } from '../../creators/getPartnersCreator';
 
 
 const Partners = () => {
 
-  const [partners, setPartners] = useState([])
-
-  useEffect(()=> {
-    const fetchPartners = async () => {
-      const partners = await Services.getPartners();
-      setPartners(partners);
-    }
-    fetchPartners();
-  }, [])
+  const dispatch = useDispatch();
+  const partners = useSelector(store => store.partners)
+  
+  dispatch(getPartners());
 
 
   const grid = partners.map( partner => {

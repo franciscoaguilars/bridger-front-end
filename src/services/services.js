@@ -138,6 +138,15 @@ static async fetchTutors() {
       return tutors;
     };
 
+////////////////////////////////////// GET TUTORS FROM BACKEND ///////////////////////////////////
+
+static async fetchPartners() {
+      let res = await this.request(`api/v1/partners.json`);
+      console.log("res from getPartners: ", res);
+      const partners = res.data;
+      return partners;
+    };
+
 //////////////////////////////////////  CREATE APPOINTMENT  //////////////////////////////////////
 
 static async createAppointment(appointment) {
