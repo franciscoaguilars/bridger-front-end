@@ -9,6 +9,8 @@ const TutorDashboard = () => {
 
   const currentUser = useSelector(store => store.user);
   const appointments = currentUser.appointments || [];
+  console.log(appointments);
+  
 
   const unbookedAppointments = appointments.map(appointment => {
     if(!appointment.student_id){

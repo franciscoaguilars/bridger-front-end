@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import { updateAppointment } from '../../creators/updateAppointmentCreator';
+import { updateAppointment } from '../../creators/updateAppointmentCreator';
 
 const EditAppointment = ({appointment}) => {
 
@@ -15,8 +15,8 @@ const EditAppointment = ({appointment}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(updatedAppointment);
-    // dispatch(updateAppointment(updatedAppointment));
-    history.push("/me");
+    dispatch(updateAppointment(updatedAppointment));
+    // history.push("/me");
   }
 
   const handleChange = (e) => {
