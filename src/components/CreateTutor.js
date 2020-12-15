@@ -24,6 +24,7 @@ const CreateTutor = () => {
     formData.append('tutor[phone_number]', tutor.phone_number);
     formData.append('tutor[occupation]', tutor.occupation);
     formData.append('tutor[linked_in_link]', tutor.linked_in_link);
+    formData.append('tutor[summary]', tutor.summary);
     formData.append('tutor[user_id]', currentUser.id); 
 
     for (var pair of formData.entries()) {
@@ -80,6 +81,10 @@ const CreateTutor = () => {
         <div className="form-group">
           <label htmlFor="occupation">Occupation</label>
           <input onChange={handleChange} name="occupation" type="text" className="form-control" id="occupation" placeholder="Occupation"></input>
+        </div>
+        <div className="form-group">
+          <label htmlFor="summary">Tell Us About Yourself!</label>
+          <input onChange={handleChange} name="summary" type="text" className="form-control" id="summary" placeholder="Who are you?"></input>
         </div>
         <div className="form-group">
           <label htmlFor="linkedin">LinkedIn</label>

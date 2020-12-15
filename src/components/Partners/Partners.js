@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Partner from './Partner';
 import {useDispatch, useSelector} from 'react-redux';
 import { getPartners } from '../../creators/getPartnersCreator';
@@ -9,7 +9,10 @@ const Partners = () => {
   const dispatch = useDispatch();
   const partners = useSelector(store => store.partners)
   
-  dispatch(getPartners());
+  useEffect(()=> {
+    dispatch(getPartners());
+  }, []);
+  
 
 
   const grid = partners.map( partner => {
