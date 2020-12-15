@@ -150,7 +150,11 @@ static async fetchPartners() {
 //////////////////////////////////////  CREATE APPOINTMENT  //////////////////////////////////////
 
 static async createAppointment(appointment) {
-  await this.request(`api/v1/appointments`, { appointment }, "post");
+  const res = await this.request(`api/v1/appointments`, { appointment }, "post");
+  console.log(res);
+  const newAppointment = res.data;
+  newAppointment["id"] = res.data.id;
+  return newAppointment;
 };
 
 //////////////////////////////////////  CANCEL APPOINTMENT  //////////////////////////////////////

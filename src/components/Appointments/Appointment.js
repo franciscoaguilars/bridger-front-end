@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { cancelAppointment } from '../../creators/cancelAppointmentCreator';
 import { bookAppointment } from '../../creators/bookAppointmentCreator';
+import AppointmentModal from './AppointmentModal';  
 
 const Appointment = ({appointment}) => {
 
@@ -28,11 +29,20 @@ const Appointment = ({appointment}) => {
       )
     } else if(currentUser.role === "tutor" && currentUser.id === appointment.tutor_id) {
       return (
-        <button className="btn btn-primary btn-block" onClick={handleCancel}>Cancel</button>
+        <div>
+          <a className="btn btn-primary" type="button" data-toggle="modal" data-target={`#appointment-modal-${appointment.id}`}>
+          See Details >>
+        </a>
+          <button className="btn btn-primary btn-block" onClick={handleCancel}>Cancel</button>
+        </div>
+        
       )
     } else if(currentUser.role === "student" && appointment.student_id) {
       return (
-        <button className="btn btn-primary btn-block" onClick={handleCancel}>Cancel</button>
+        <div>
+           <button className="btn btn-primary btn-block" onClick={handleCancel}>Cancel</button>
+        </div>  
+       
       )
     } else {
       return null;
@@ -60,6 +70,7 @@ const Appointment = ({appointment}) => {
       
       <ShowStudent />
       <AppointmentButtons />
+      <AppointmentModal appointment={appointment} />
     </div>
   )
 }

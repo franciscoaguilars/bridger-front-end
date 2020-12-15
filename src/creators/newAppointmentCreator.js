@@ -18,8 +18,8 @@ export function createAppointment(appointment) {
   };
 };
 
-function setAppointment(appointment) {
-  return {type: CREATE_APPOINTMENT, appointment};
+function setAppointment(newAppointment) {
+  return {type: CREATE_APPOINTMENT, newAppointment};
 };
 
 function updateCreateAppointmentError(id) {
