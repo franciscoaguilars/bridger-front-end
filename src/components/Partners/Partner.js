@@ -7,7 +7,7 @@ const Partner = (props) => {
   return(
     <div className="partner-card">
       <div>
-        <img className="partner-card-image" src={`${localUrl}/${props.attributes.image}`} alt="partner" />
+        <img className="partner-card-image" src={`${herokuUrl}/${props.attributes.image}`} alt="partner" />
       </div>
       <div className="partner-card-details">
         <h5>{props.attributes.name}</h5>

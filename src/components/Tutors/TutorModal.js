@@ -27,7 +27,7 @@ const TutorModal = (props) => {
             <div className="tutor-card">
               <div>
               {/* make sure the image source below is set to the correct environment */}
-                <img className="tutor-modal-image" src={`${localUrl}/${props.attributes.avatar}`}/>
+                <img className="tutor-modal-image" src={`${herokuUrl}/${props.attributes.avatar}`}/>
               </div>
               <div className="tutor-card-details">
                 <h5>{`${props.attributes.first_name} ${props.attributes.last_name}`}</h5>

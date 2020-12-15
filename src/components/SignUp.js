@@ -30,7 +30,7 @@ const SignUp = () => {
     formData.append('role', user.role);
     
     
-    axios.post(`${localUrl}/users`,
+    axios.post(`${herokuUrl}/users`,
     formData )
     .then(resp => {
       console.log(resp);
