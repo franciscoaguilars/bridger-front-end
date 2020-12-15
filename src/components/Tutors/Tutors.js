@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import Tutor from './Tutor';
 import { getTutors } from '../../creators/getTutorsCreator';
@@ -8,7 +8,10 @@ const Tutors = () => {
   const dispatch = useDispatch();
   const tutors = useSelector(store => store.tutors)
   
-  dispatch(getTutors());
+  useEffect(()=> {
+    dispatch(getTutors());
+  }, []);
+  
   
 
   const tutorsGrid = tutors.map( tutor => {
