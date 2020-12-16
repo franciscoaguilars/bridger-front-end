@@ -16,7 +16,7 @@ const EditAppointment = ({appointment}) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(updatedAppointment);
-    dispatch(updateAppointment(updatedAppointment, appointment_id));
+  dispatch(updateAppointment(updatedAppointment, appointment_id));
     history.push("/me");
   }
 
@@ -24,7 +24,7 @@ const EditAppointment = ({appointment}) => {
     e.preventDefault();
     console.log('previous appt: ', appointment);
     
-    setUpdatedAppointment(Object.assign({}, updatedAppointment, {[e.target.name]: e.target.value}, {appointment_id: appointment.id}))
+    setUpdatedAppointment(Object.assign({}, updatedAppointment, {[e.target.name]: e.target.value}, {id: appointment.id, tutor_id: appointment.tutor_id, student_id: appointment.student_id}))
     console.log(('appointment:', updatedAppointment));
   }
 

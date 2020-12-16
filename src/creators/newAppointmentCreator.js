@@ -9,8 +9,8 @@ export function createAppointment(appointment) {
 
   return async function(dispatch) {
     try {
-      await Services.createAppointment(appointment);
-      dispatch(setAppointment(appointment));
+      const newAppointment = await Services.createAppointment(appointment);
+      dispatch(setAppointment(newAppointment));
     } catch(e) {
       console.log("HIT create appointment error: ", e);
       dispatch(updateCreateAppointmentError());
