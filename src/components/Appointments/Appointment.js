@@ -58,14 +58,38 @@ const Appointment = ({appointment}) => {
       return null
     }
   }
+  // --- DATE FORMATING --- 
+  const [year, month, day] = appointment.date.split('-')
+  const dateOptions = {  year: 'numeric', month: 'long', day: 'numeric' };
+  const date = new Date(year, month , day );
 
+  const dateParsed = date.toLocaleDateString("en-US", dateOptions)
+  // --- DATE FORMATING --- 
+
+  // --- TIME --- 
+  const msToTime = (duration)  => {
+    let milliseconds = parseInt((duration % 1000) / 100),
+      seconds = Math.floor((duration / 1000) % 60),
+      minutes = Math.floor((duration / (1000 * 60)) % 60),
+      hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
   
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+  
+    return hours + ":" + minutes;
+  }
+
+
+  const dateToMs = new Date(appointment.time);
+  const dateFormatted = msToTime(dateToMs);
+
+  // --- TIME ---
   
   return(
     <div className="appointment-card">
       <div className="appointment-card-details">
-        <div>{appointment.date}</div>
-        <div>{appointment.time}</div>
+        <div className='m-2'>{dateParsed}</div>
+        <div>{dateFormatted}</div>
       </div>
       
       <ShowStudent />
