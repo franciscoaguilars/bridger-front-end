@@ -163,6 +163,12 @@ static async createAppointment(appointment) {
     await this.request(`api/v1/appointments/${id}`, {}, "delete");
   };
 
+//////////////////////////////////////  CANCEL APPOINTMENT  //////////////////////////////////////
+
+static async updateAppointment(appointment, id) {
+  await this.request(`api/v1/appointments/${id}`, { appointment }, "put");
+};
+
   //////////////////////////////////// BOOK APPOINTMENT ////////////////////////
 
   static async addStudentToAppointment(appt_id, student_id) {

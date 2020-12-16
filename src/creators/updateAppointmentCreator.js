@@ -5,12 +5,12 @@ import Services from "../services/services";
  * array of appointments currently in user's state
  * @param {integer} id - appointment primary key ID
  */
-export function updateAppointment(appointment) {
+export function updateAppointment(updatedAppointment, appointment_id) {
 
   return async function(dispatch) {
     try {
-      await Services.updateAppointment(appointment);
-      dispatch(changeAppointment(appointment));
+      await Services.updateAppointment(updatedAppointment, appointment_id);
+      dispatch(changeAppointment(updatedAppointment));
     } catch(e) {
       console.log("HIT create appointment error: ", e);
       dispatch(updateUpdateAppointmentError());

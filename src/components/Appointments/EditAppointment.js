@@ -9,14 +9,15 @@ const EditAppointment = ({appointment}) => {
   const history = useHistory();
   const currentUser = useSelector(store => store.user);
   const dispatch = useDispatch();
+  const appointment_id = appointment.id;
 
   var today = new Date().toISOString().split('T')[0];
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(updatedAppointment);
-    dispatch(updateAppointment(updatedAppointment));
-    // history.push("/me");
+    dispatch(updateAppointment(updatedAppointment, appointment_id));
+    history.push("/me");
   }
 
   const handleChange = (e) => {
