@@ -5,6 +5,7 @@ import {
   BOOK_APPOINTMENT,
   CANCEL_APPOINTMENT,
   CREATE_APPOINTMENT,
+  UPDATE_APPOINTMENT,
   CREATE_TUTOR
 } from "../actionTypes";
 
@@ -41,6 +42,9 @@ export default function resultsReducer(state=INITIAL_STATE, action) {
       console.log(action.id);
       return {...state, appointments: state.appointments.filter(appt => appt.id !== action.id)};
     case CREATE_APPOINTMENT:
+      console.log(state);
+      return {...state, appointments: [...state.appointments, action.newAppointment]};
+    case UPDATE_APPOINTMENT:
       console.log(state);
       return {...state, appointments: [...state.appointments, action.appointment]};
     default:

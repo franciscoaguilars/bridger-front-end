@@ -150,7 +150,11 @@ static async fetchPartners() {
 //////////////////////////////////////  CREATE APPOINTMENT  //////////////////////////////////////
 
 static async createAppointment(appointment) {
-  await this.request(`api/v1/appointments`, { appointment }, "post");
+  const res = await this.request(`api/v1/appointments`, { appointment }, "post");
+  console.log(res);
+  const newAppointment = res.data;
+  newAppointment["id"] = res.data.id;
+  return newAppointment;
 };
 
 //////////////////////////////////////  CANCEL APPOINTMENT  //////////////////////////////////////
@@ -158,6 +162,12 @@ static async createAppointment(appointment) {
   static async removeAppointments(id) {
     await this.request(`api/v1/appointments/${id}`, {}, "delete");
   };
+
+//////////////////////////////////////  CANCEL APPOINTMENT  //////////////////////////////////////
+
+static async updateAppointment(appointment, id) {
+  await this.request(`api/v1/appointments/${id}`, { appointment }, "put");
+};
 
   //////////////////////////////////// BOOK APPOINTMENT ////////////////////////
 
