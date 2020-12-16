@@ -10,7 +10,7 @@ export function updateAppointment(updatedAppointment, appointment_id) {
   return async function(dispatch) {
     try {
       await Services.updateAppointment(updatedAppointment, appointment_id);
-      dispatch(changeAppointment(updatedAppointment));
+      dispatch(changeAppointment(updatedAppointment, appointment_id));
     } catch(e) {
       console.log("HIT create appointment error: ", e);
       dispatch(updateUpdateAppointmentError());
@@ -18,8 +18,8 @@ export function updateAppointment(updatedAppointment, appointment_id) {
   };
 };
 
-function changeAppointment(appointment) {
-  return {type: UPDATE_APPOINTMENT, appointment};
+function changeAppointment(appointment, id) {
+  return {type: UPDATE_APPOINTMENT, appointment, id};
 };
 
 function updateUpdateAppointmentError() {

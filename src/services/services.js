@@ -153,7 +153,8 @@ static async createAppointment(appointment) {
   const res = await this.request(`api/v1/appointments`, { appointment }, "post");
   console.log(res);
   const newAppointment = res.data;
-  newAppointment["id"] = res.data.id;
+  // newAppointment["id"] = res.data.id;
+  console.log(newAppointment);
   return newAppointment;
 };
 
@@ -163,7 +164,7 @@ static async createAppointment(appointment) {
     await this.request(`api/v1/appointments/${id}`, {}, "delete");
   };
 
-//////////////////////////////////////  CANCEL APPOINTMENT  //////////////////////////////////////
+//////////////////////////////////////  UPDATE APPOINTMENT  //////////////////////////////////////
 
 static async updateAppointment(appointment, id) {
   await this.request(`api/v1/appointments/${id}`, { appointment }, "put");
