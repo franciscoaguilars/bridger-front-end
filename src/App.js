@@ -17,6 +17,7 @@ import Partners from './components/Partners/Partners';
 import Footer from './components/Footer';
 import FlashMessage from "./components/FlashMessage";
 import {resetLoginError, resetGetTutorsError, resetCreateTutorError, resetCreateStudentError, resetCreateAppointmentError, resetCancelAppointmentError, resetBookAppointmentError} from "./creators/resetErrorsCreator"
+import useViewport from "./hooks/useViewport";
 
 function App() {
 
@@ -38,6 +39,15 @@ function App() {
   const [getTutorsErrorFlashMessage, setGetTutorsErrorFlashMessage] = useState(false);
   const [cancelAppointmentErrorFlashMessage, setCancelAppointmentErrorFlashMessage] = useState(false);
   const [bookAppointmentErrorFlashMessage, setBookAppointmentErrorFlashMessage] = useState(false);
+  //CUSTOM HOOK
+  const {viewportHeight} = useViewport();
+  let topPositioning = viewportHeight - 80;
+  const divStyle = {
+    position: 'absolute',
+    top: topPositioning,
+    right: 0,
+    zIndex: 2
+  };
 
   useEffect(() => {
     const getUser = async () => {
@@ -85,7 +95,7 @@ function App() {
 
   return (
     <div className="App">
-      <div className="Flash-Messages-Container">
+      <div style={divStyle}>
         {loginErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="Invalid Username or Password."/> )}
         {createStudentErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="There was an error trying to sign up."/> )}
         {createTutorErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="There was an error trying to sign up."/> )}
