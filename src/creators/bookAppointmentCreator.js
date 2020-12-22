@@ -5,12 +5,12 @@ import Services from "../services/services";
  * appointment)
  * @param {integer} id - appointment primary key student_id
  */
-export function bookAppointment(appointment_id, student_id) {
+export function bookAppointment(appointment, student_id) {
 
   return async function(dispatch) {
     try {
-      await Services.addStudentToAppointment(appointment_id, student_id);
-      dispatch(reserveAppointment(appointment_id));
+      await Services.addStudentToAppointment(appointment, student_id);
+      dispatch(reserveAppointment(appointment));
     } catch(e) {
       console.log("HIT book appointment error: ", e);
       dispatch(updateBookAppointmentError());
@@ -18,8 +18,8 @@ export function bookAppointment(appointment_id, student_id) {
   };
 };
 
-function reserveAppointment(id) {
-  return {type: BOOK_APPOINTMENT, id};
+function reserveAppointment(appointment) {
+  return {type: BOOK_APPOINTMENT, appointment};
 };
 
 function updateBookAppointmentError(id) {

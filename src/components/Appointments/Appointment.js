@@ -19,7 +19,7 @@ const Appointment = ({appointment}) => {
   };
 
   const handleBookAppointment = () => {
-    dispatch(bookAppointment(appointment.id, currentUser.id)); // passing student ID
+    dispatch(bookAppointment(appointment, currentUser.id)); // passing student ID
   }
 
   const AppointmentButtons = () => {

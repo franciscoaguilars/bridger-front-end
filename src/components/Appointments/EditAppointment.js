@@ -17,7 +17,7 @@ const EditAppointment = ({appointment}) => {
     e.preventDefault();
     console.log(updatedAppointment);
   dispatch(updateAppointment(updatedAppointment, appointment_id));
-    history.push("/me");
+    // history.push("/me");
   }
 
   const handleChange = (e) => {

@@ -172,7 +172,8 @@ static async updateAppointment(appointment, id) {
 
   //////////////////////////////////// BOOK APPOINTMENT ////////////////////////
 
-  static async addStudentToAppointment(appt_id, student_id) {
+  static async addStudentToAppointment(appointment, student_id) {
+    const appt_id = appointment.id;
     await this.request(`api/v1/appointments/${appt_id}`, { student_id }, "put");
   }
 

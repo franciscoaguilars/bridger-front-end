@@ -20,7 +20,6 @@ const TutorDashboard = () => {
     } else {
       return null
     }
-    
   });
 
   const bookedAppointments = appointments.map(appointment => {
@@ -57,7 +56,7 @@ const TutorDashboard = () => {
               </div>
             </div>
             <div className="tab-pane fade py-4" id={`booked-${currentUser.id}`}     role="tabpanel" aria-labelledby="appointments">
-              <div className="appointments-grid">
+              <div className="tutor-appointments">
                 {bookedAppointments}
               </div>
             </div>
