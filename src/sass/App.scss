@@ -2,6 +2,9 @@
 @import "components/navbar";
 @import "abstracts/variables";
 @import "pages/home";
+@import "pages/about";
+@import "pages/partners";
+@import "pages/form";
 @import "components/grids";
 @import "components/tutor-card";
 @import "components/partner-card";
@@ -19,4 +22,8 @@ body {
 .App {
   position: relative;
   min-height: 100vh;
+}
+
+p {
+  font-family: 'Jura', sans-serif;
 }

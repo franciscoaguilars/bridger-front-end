@@ -1,23 +1,40 @@
 .title-home {
   position: relative;
   height: 95vh;
-  
+  background: url('../../assets/images/masktutor.jpeg');
+  background-size: cover;
 }
 
-.title-box-home {
+.title-home-overlay {
   position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 60%;
+  clip-path: polygon(0 0, 79% 0, 100% 100%, 0 100%);
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title-home-overlay-header {
+  width: 400px;
+  color: white;
+}
+
+.title-home-overlay-header h1 {
+  font-size: 50px;
+}
+
+.title-home-overlay-header h2 {
+  font-size: 20px;
 }
 
 .how-it-works {
   width: 100%;
-  padding: 1rem 5rem 5rem;
+  padding: 5rem;
   background-color: #FFD6BA;
   text-align: center;
 }
@@ -41,4 +58,37 @@
   border-radius: 5px;
   width: 20rem;
   border: 1px solid white;
+}
+
+.how-it-works-card:not(:last-child){
+  margin-right: 10px;
+}
+
+@media (max-width: 900px) {
+  .title-home {
+    height: 70vh;
+  }
+  .title-home-overlay {
+    width: 100%;
+    clip-path: none;
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .how-it-works-deck {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .how-it-works-card:not(:last-child){
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .title-box-home h1 {
+    font-size: 2rem;
+  }
+  .how-it-works-header h2 {
+    font-size: 1.5rem;
+  }
 }
