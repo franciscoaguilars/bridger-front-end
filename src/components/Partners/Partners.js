@@ -22,12 +22,19 @@ const Partners = () => {
   })
 
   return (
-    <div className="container">
-      <h1 className="mb-4">Our Partners</h1>
-      <div className="partners-grid mb-4">
-        {grid}
+    <div>
+      <div className="partner-banner">
+        <div className="partner-banner-overlay">
+          <div className="partner-banner-overlay-header">Partnerships</div>
+        </div>
+      </div>
+      <div className="container">
+        <div className="partners-grid mb-4">
+          {grid}
+        </div>
       </div>
     </div>
+    
   )
 }
 

@@ -3,25 +3,25 @@ import axios from 'axios';
 import { AiOutlineUserAdd } from 'react-icons/ai';
 import { FaChalkboardTeacher } from 'react-icons/fa';
 import { BiVideo } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
 
   return (
     <Fragment>
       <div className="title-home">
-      <div className="title-box-home">
-        <h1>Improve Grades. Prepare for Life.</h1>
-        <p>Delivering Tuturing and Mentorship to Bridge The Gap</p>
+      <div className="title-home-overlay">
+        <div className="title-home-overlay-header">
+          <h1>Improve Grades. Prepare for Life.</h1>
+          <h2>Delivering Tuturing and Mentorship to Bridge The Gap</h2>
+        </div>
       </div>
       
     </div>
     <div className="how-it-works">
-        <div className="how-it-works-header">
-          <h2>How it works</h2>
-        </div>
         <div className="how-it-works-deck">
           <div className="how-it-works-card">
-            <p>1. Sign Up and Qualify for Bridger</p>
+            <p>1. <Link to="/signup">Sign Up</Link> and Qualify for Smart Reach tutoring</p>
             <AiOutlineUserAdd size={64} />
           </div>
           <div className="how-it-works-card">

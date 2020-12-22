@@ -27,7 +27,8 @@ const Login = () => {
 
 
   return (
-    <div className="container ">
+    <div className="form-page">
+      <div className="container ">
       <form onSubmit={handleOnSubmit}>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Email address</label>
@@ -39,8 +40,9 @@ const Login = () => {
         </div>
         <button type="submit" className="btn btn-primary">Log in</button>
       </form>
-      
     </div>
+    </div>
+    
   )
 }
 
