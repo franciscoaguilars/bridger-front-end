@@ -20,14 +20,15 @@ const About = () => {
             </div>
           </div>
           <div className="row mb-4">
+          <div className="col-lg-4 col-sm-12 d-flex align-items-center">
+              <h1 className="mb-4">Who We Are</h1>
+            </div>
             <div className="col-lg-8 col-sm-12">
               <p>We are a group of individuals who aim to utilize the skills and knowledge we have gained through our personal educational achievement to bridge the gap in quality education through free tutoring services for students that are not sufficiently served by their current education systems. We hope to work with these students to create equality between all communities in the strength and quality of the education that young minds receive. We are qualified to serve each student with an individualistic and holistic approach as a result of our tutors’ expansive educational experiences, JEDI (Justice, Equity, Diversity, and Inclusivity) training, and thorough knowledge of how to navigate college and graduate admissions processes.
 
             </p>
             </div>
-            <div className="col-lg-4 col-sm-12 d-flex align-items-center">
-              <h1 className="mb-4">Who We Are</h1>
-            </div>
+            
           </div>
           <div className="row mb-4">
             <div className="col-lg-4 col-sm-12 d-flex align-items-center">
@@ -40,15 +41,17 @@ const About = () => {
             </div>
           </div>
           <div className="row mb-4">
+
+          <div className="col-lg-4 col-sm-12 d-flex align-items-center">
+              <h1 className="mb-4">COVID-19 Impact</h1>
+            </div>
            
             <div className="col-lg-8 col-sm-12">
               <p>As a result of the pandemic we recognize students are experiencing a decrease in accessible resources and academic support. With many schools transitioning to online learning, we are aware of what differentiates an in-person classroom setting from a virtual at-home setting. We understand the difficulties that accompany virtual learning, which is why we aim to ease some of the strain caused by this change in learning modes. We will be conducting all tutoring appointments through virtual meeting tools, however once restrictions have been lifted you may have the option of meeting tutors and students in person to create an even more effective educational experience.
 
             </p>
             </div>
-            <div className="col-lg-4 col-sm-12 d-flex align-items-center">
-              <h1 className="mb-4">COVID-19 Impact</h1>
-            </div>
+           
           </div> 
           <div className="row mb-4">
             <div className="col-lg-4 col-sm-12 d-flex align-items-center">
