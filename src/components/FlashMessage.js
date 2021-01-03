@@ -2,12 +2,13 @@ import React, {useEffect} from 'react';
 import {Spring} from 'react-spring/renderprops';
 
 const FlashMessage = ({message, setState}) => {
+  console.log("the message: ", message);
 
   useEffect(() => {
 
     const intervalId = setInterval(() => {
       setState(false);
-    }, 4000);
+    }, 7000);
 
       return () => clearInterval(intervalId);
   }, [setState]);
