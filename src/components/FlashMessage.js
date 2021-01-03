@@ -7,7 +7,7 @@ const FlashMessage = ({message, setState}) => {
 
     const intervalId = setInterval(() => {
       setState(false);
-    }, 4000);
+    }, 7000);
 
       return () => clearInterval(intervalId);
   }, [setState]);

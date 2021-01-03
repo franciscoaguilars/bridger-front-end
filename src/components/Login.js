@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { getUser } from '../creators/userCreator';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,6 +13,18 @@ const Login = () => {
     const currentUser = useSelector(store => store.user)
 
 
+  useEffect(() => {
+
+    const displayFlashMessage = () => {
+        if (currentUser.first_name) {
+          console.log("currentUser changed to True");
+          history.push("/me");
+        };
+    };
+    displayFlashMessage();
+  }, [currentUser, dispatch]);
+
+
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
@@ -20,7 +32,6 @@ const Login = () => {
     console.log(password);
 
     dispatch(getUser(email, password))
-    history.push("/me");
 
   }
 
