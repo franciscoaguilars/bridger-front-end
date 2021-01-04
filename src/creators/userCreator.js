@@ -9,6 +9,7 @@ import Services from "../services/services";
 export function getUser(email, password) {
 
   return async function(dispatch) {
+
     try {
       const user = await Services.login(email, password);
       dispatch(updateUser(user));
