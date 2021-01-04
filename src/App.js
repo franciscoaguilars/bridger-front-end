@@ -97,12 +97,12 @@ function App() {
     <div className="App">
       <div style={divStyle}>
         {loginErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="Invalid Username or Password."/> )}
-        {createStudentErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="There was an error trying to sign up."/> )}
-        {createTutorErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="There was an error trying to sign up."/> )}
-        {bookAppointmentErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="Looks like there was an error attempting to book this appointment."/> )}
-        {cancelAppointmentErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="Looks like there was an error attempting to cancel this appointment."/> )}
-        {getTutorsErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="Unfortunately the tutors page is currently unavailable."/> )}
-        {createAppointmentErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="Looks like there was an error attempting to create this appointment."/> )}
+        {createStudentErrorFlashMessage && (<FlashMessage setState={setCreateStudentErrorFlashMessage} message="There was an error trying to sign up."/> )}
+        {createTutorErrorFlashMessage && (<FlashMessage setState={setCreateTutorErrorFlashMessage} message="There was an error trying to sign up."/> )}
+        {bookAppointmentErrorFlashMessage && (<FlashMessage setState={setBookAppointmentErrorFlashMessage} message="Looks like there was an error attempting to book this appointment."/> )}
+        {cancelAppointmentErrorFlashMessage && (<FlashMessage setState={setCancelAppointmentErrorFlashMessage} message="Looks like there was an error attempting to cancel this appointment."/> )}
+        {getTutorsErrorFlashMessage && (<FlashMessage setState={setGetTutorsErrorFlashMessage} message="Unfortunately the tutors page is currently unavailable."/> )}
+        {createAppointmentErrorFlashMessage && (<FlashMessage setState={setCreateAppointmentErrorFlashMessage} message="Looks like there was an error attempting to create this appointment."/> )}
       </div>
       <Navbar />
         <Switch>
