@@ -1,8 +1,8 @@
 .footer {
   width: 100%;
-  background-color: #FFD6BA;
+  background-color: #f4f5f8;
   color: $color-header-text;
-
+  margin-top: 20px;
 }
 
 .footer-contents {
@@ -18,3 +18,11 @@
   justify-content: flex-start;
   align-items: flex-start;
 }
+
+@media (max-width: 990px) {
+  .footer-contents {
+    border-right: none;
+    margin-bottom: 20px;
+  }
+}
+
