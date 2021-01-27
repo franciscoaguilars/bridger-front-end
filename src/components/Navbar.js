@@ -88,7 +88,7 @@ const Navbar = () => {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light">
-      <Link className="navbar-brand d-flex align-items-center" to="/" ><img src="images/sr_logo.png" width="50px" height="50px" alt="logo" class="mr-1" />The Smart Reach</Link>
+      <Link className="navbar-brand d-flex align-items-center" to="/" ><img src="images/sr_logo.png" width="50px" height="50px" alt="logo" class="mr-1" />Smart Reach</Link>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
