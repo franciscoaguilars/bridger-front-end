@@ -1,7 +1,17 @@
 .navbar {
-  background-color: #BEE3DB;
+  background-color: #54ABB2;
+  padding: 0 16px !important;
+}
+
+.navbar-brand {
+  color: white !important;
 }
 
 .nav-link {
-  padding: 0 5px !important;
+  padding: 0 10px !important;
+  color: white !important;
+  transition: 0.5s;
+  &:hover {
+    color: #E0B643 !important;
+  }
 }

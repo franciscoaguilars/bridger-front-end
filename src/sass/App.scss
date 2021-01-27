@@ -1,6 +1,6 @@
 @import "components/container";
 @import "components/navbar";
-@import "abstracts/variables";
+@import "variables";
 @import "pages/home";
 @import "pages/about";
 @import "pages/team";
@@ -18,7 +18,7 @@
 @import "components/avatar";
 
 body {
-  background-color: $color-background;
+  background-color: #fbfbfb;
 }
 
 .App {

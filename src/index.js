@@ -13,6 +13,7 @@ import {applyMiddleware, createStore, compose} from "redux";
 import {Provider} from 'react-redux';
 import rootReducer from "./reducers/rootReducer";
 import thunk from "redux-thunk";
+import ScrollToTop from './components/ScrollToTop';
 
 // FOR DEVELOPMENT / THERE ARE ISSUES WITH SOME BROWSERS WHEN USING REDUX DEVTOOLS
 // const store = createStore(
@@ -33,6 +34,7 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
   <Router>
+  <ScrollToTop />
     <Route path="/" component={App}/>
   </Router>
   </Provider>,

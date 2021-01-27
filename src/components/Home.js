@@ -1,8 +1,7 @@
 import React, { useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 import { AiOutlineUserAdd } from 'react-icons/ai';
-import { FaChalkboardTeacher } from 'react-icons/fa';
-import { BiVideo } from 'react-icons/bi';
+import { FaChalkboardTeacher, FaHandshake } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -12,29 +11,32 @@ const Home = () => {
       <div className="title-home">
       <div className="title-home-overlay">
         <div className="title-home-overlay-header">
-          <h1>Improve Grades. Prepare for Life.</h1>
-          <h2>Delivering Tuturing and Mentorship to Bridge The Gap</h2>
+          <h1>Reaching Beyond The Gap</h1>
+          <h2>To Extend Educational Achievement</h2>
         </div>
       </div>
       
     </div>
     <div className="how-it-works">
-        <div className="how-it-works-deck">
-          <div className="how-it-works-card">
-            <p>1. <Link to="/signup">Sign Up</Link> and Qualify for Smart Reach tutoring</p>
-            <AiOutlineUserAdd size={64} />
-          </div>
-          <div className="how-it-works-card">
-            <p>2. Find tutors and mentors for what you need help with</p>
-            <FaChalkboardTeacher size={64} />
-          </div>
-          <div className="how-it-works-card"> 
-            <p>3. Schedule a tutoring session and get going!</p>
-            <BiVideo size={64} />
-          </div>
+      <div className="how-it-works-deck">
+        <div className="how-it-works-card">
+          <p>Interested in becoming a tutor?</p>
+          <Link to="/volunteers">Learn more.</Link>
+          <AiOutlineUserAdd size={64} color="#E0B643" />
         </div>
-        
+        <div className="how-it-works-card">
+          <p>Looking to schedule a session with one of our tutors?</p>
+          <span className="mb-3">Sign up <a href="https://thedecnetwork.typeform.com/to/Jbca7QrZ">here.</a></span> 
+          <FaChalkboardTeacher size={64} color="#E0B643" />
+        </div>
+        <div className="how-it-works-card"> 
+          <p>Is your organization interested in partnering with us?</p>
+          <span>Find out more <Link to="/about" >here.</Link></span>
+          
+          <FaHandshake size={64} color="#E0B643" />
+        </div>
       </div>
+    </div>
     </Fragment>
     
   )
