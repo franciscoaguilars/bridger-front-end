@@ -7,6 +7,8 @@ import Home from './components/Home';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import About from './components/About';
+import OurTeam from './components/OurTeam';
+import Volunteers from './components/Volunteers';
 import Dashboard from './components/Dashboard/Dashboard';
 import Tutors from './components/Tutors/Tutors';
 import CreateStudent from './components/CreateStudent';
@@ -97,21 +99,23 @@ function App() {
     <div className="App">
       <div style={divStyle}>
         {loginErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="Invalid Username or Password."/> )}
-        {createStudentErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="There was an error trying to sign up."/> )}
-        {createTutorErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="There was an error trying to sign up."/> )}
-        {bookAppointmentErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="Looks like there was an error attempting to book this appointment."/> )}
-        {cancelAppointmentErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="Looks like there was an error attempting to cancel this appointment."/> )}
-        {getTutorsErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="Unfortunately the tutors page is currently unavailable."/> )}
-        {createAppointmentErrorFlashMessage && (<FlashMessage setState={setLoginErrorFlashMessage} message="Looks like there was an error attempting to create this appointment."/> )}
+        {createStudentErrorFlashMessage && (<FlashMessage setState={setCreateStudentErrorFlashMessage} message="There was an error trying to sign up."/> )}
+        {createTutorErrorFlashMessage && (<FlashMessage setState={setCreateTutorErrorFlashMessage} message="There was an error trying to sign up."/> )}
+        {bookAppointmentErrorFlashMessage && (<FlashMessage setState={setBookAppointmentErrorFlashMessage} message="Looks like there was an error attempting to book this appointment."/> )}
+        {cancelAppointmentErrorFlashMessage && (<FlashMessage setState={setCancelAppointmentErrorFlashMessage} message="Looks like there was an error attempting to cancel this appointment."/> )}
+        {getTutorsErrorFlashMessage && (<FlashMessage setState={setGetTutorsErrorFlashMessage} message="Unfortunately the tutors page is currently unavailable."/> )}
+        {createAppointmentErrorFlashMessage && (<FlashMessage setState={setCreateAppointmentErrorFlashMessage} message="Looks like there was an error attempting to create this appointment."/> )}
       </div>
       <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/team" component={OurTeam} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/signin" component={Login} />
           <Route exact path="/me" component={Dashboard} />
           <Route exact path="/tutors" component={Tutors} />
+          <Route exact path="/volunteers" component={Volunteers} />
           <Route exact path="/partners" component={Partners} />
           <Route exact path="/students/create" component={CreateStudent} />
           <Route exact path="/tutors/create" component={CreateTutor} />
