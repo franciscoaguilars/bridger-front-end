@@ -12,17 +12,23 @@
   border-right: 1px solid $color-header-text;
 }
 
+.footer-contents-no-border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-contents-extra-small {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-size: 0.8rem;
+}
+
 .footer-contact {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
 }
-
-@media (max-width: 990px) {
-  .footer-contents {
-    border-right: none;
-    margin-bottom: 20px;
-  }
-}
-
