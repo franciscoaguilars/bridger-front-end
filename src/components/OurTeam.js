@@ -1,5 +1,9 @@
 import react from 'react';
-import PlaceholderImg from "../assets/images/team_photos/placeholder.jpg"
+import PlaceholderImg from "../assets/images/team_photos/placeholder.png";
+import Jamo from "../assets/images/team_photos/jamo.png";
+import Mullen from "../assets/images/team_photos/mullen.jpg";
+import Lou from "../assets/images/team_photos/lou.jpeg";
+import Julia from "../assets/images/team_photos/julia.png"
 
 const OurTeam = () => {
   return (
@@ -14,7 +18,7 @@ const OurTeam = () => {
 
           <div className="row mb-4">
             <div className="col-lg-4 col-sm-12">
-              <img src={PlaceholderImg} alt="team-member"/>
+              <img className="team-img" src={PlaceholderImg} alt="team-member"/>
             </div>
             <div className="col-lg-8 col-sm-12">
               <h2>Cameron Keehn</h2>
@@ -31,7 +35,7 @@ const OurTeam = () => {
 
           <div className="row mb-4">
             <div className="col-lg-4 col-sm-12">
-              <img src={PlaceholderImg} alt="team-member"/>
+              <img className="team-img" src={Mullen} alt="team-member"/>
             </div>
             <div className="col-lg-8 col-sm-12">
             <h2>Michael Mullen</h2>
@@ -55,7 +59,7 @@ const OurTeam = () => {
 
           <div className="row mb-4">
             <div className="col-lg-4 col-sm-12">
-              <img src={PlaceholderImg} alt="team-member"/>
+              <img className="team-img" src={Julia} alt="team-member"/>
             </div>
             <div className="col-lg-8 col-sm-12">
             <h2>Julia Rosenblatt</h2>
@@ -78,7 +82,7 @@ const OurTeam = () => {
 
           <div className="row mb-4">
             <div className="col-lg-4 col-sm-12">
-              <img src={PlaceholderImg} alt="team-member"/>
+              <img className="team-img" src={Jamo} alt="team-member"/>
             </div>
             <div className="col-lg-8 col-sm-12">
             <h2>Jamieson Reinhard</h2>
@@ -97,7 +101,7 @@ const OurTeam = () => {
 
           <div className="row mb-4">
             <div className="col-lg-4 col-sm-12">
-              <img src={PlaceholderImg} alt="team-member"/>
+              <img className="team-img" src={Lou} alt="team-member"/>
             </div>
             <div className="col-lg-8 col-sm-12">
             <h2>Louis Garavaglia</h2>

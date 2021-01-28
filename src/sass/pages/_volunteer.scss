@@ -50,6 +50,18 @@
     border-color:#FFFFFF;
   }
 
+  .volunteer-sign-up-box {
+    width: 100%;
+    padding: 5rem;
+    margin-top: 10vh;
+    background-color: #8D89A5;
+    text-align: center;
+  }
+
+  .volunteer-list li{
+    font-family: 'Jura', sans-serif;
+  }
+
   @media (max-width: 900px) {
     .volunteer-banner-overlay {
       width: 100%;
@@ -60,5 +72,8 @@
       font-size: 50px;
       width: 400px;
       text-align: center;
+    }
+    .how-it-works {
+      background-color: rgba(251, 251, 251, 0.9);
     }
   }
