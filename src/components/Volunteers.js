@@ -1,4 +1,5 @@
-import react from 'react';
+import React from 'react';
+import { FaChalkboardTeacher } from 'react-icons/fa';
 
 const Volunteers = () => {
   return (
@@ -13,16 +14,59 @@ const Volunteers = () => {
   
           <div className="row mb-4">
             <div className="col-lg-4 col-sm-12 d-flex align-items-center d-flex align-items-center">
-              <h1 className="mb-4">Want to join our amazing team of volunteers?</h1>
+              <h1 className="mb-4">Role of a Tutor</h1>
             </div>
             <div className="col-lg-8 col-sm-12">
-              <p>We're looking for tutors that teach the following subjects ...  Does that sound like you? Click the link below and join us!</p>
+              <p>
+                Tutors are the backbone of Smart Reach. Tutors will form individual connections with their 
+                students through diversified learning experiences to aid students in realizing their full academic potential.
+                <br></br>
+                <br></br>Tutors can look forward to:
+              </p>
+              <ul className="volunteer-list">
+                <li>Supporting students academically for the duration of the semester</li>
+                <li>Planning individual tutoring sessions at their and their students availability</li>
+                <li>Observing improved academic performance with their students</li>
+                <li>Making an impact of their own in communities’ educational access across the country</li>
+              </ul>
             </div>
           </div>
 
-          <div className="how-it-works">
+          <div className="row mb-4">
+            <div className="col-lg-4 col-sm-12 d-flex align-items-center d-flex align-items-center">
+              <h1 className="mb-4">Become a Tutor</h1>
+            </div>
+            <div className="col-lg-8 col-sm-12">
+              <p>
+                Thank you for considering becoming a part of the Smart Reach team and joining our mission to reach 
+                beyond the gap in education! Without you our students would not be able to meet  their full academic 
+                potential, and for that we are truly grateful. To learn more about joining our team or to sign up to become a tutor, 
+                please contact us by completing the registration form <a href="https://thedecnetwork.typeform.com/to/px6RmiMZ">here</a>. We will reach out to you as soon as possible 
+                and greatly appreciate your consideration and support.
+                <br></br>
+                <br></br>Prerequisites:
+              </p>
+              <ul className="volunteer-list">
+                <li>College degree</li>
+                <li>Clear background check</li>
+                <li>Previous tutoring experience is appreciated, but not required</li>
+              </ul>
+              <br></br>
+              <p>Time Commitment:</p>
+              <ul className="volunteer-list">
+                <li>Up to you!</li>
+                <li>We love to see students forming longitudinal connections with their tutors, but sessions will be made based on your availability and interests</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="volunteer-sign-up-box">
             <div className="how-it-works-deck">
-                <button className="volunteer-button">Sign Up Here</button>
+              <div className="how-it-works-card">
+                <p>If this sounds like you, click below to join us!</p>
+                <span className="mb-3">Sign up <a href="https://thedecnetwork.typeform.com/to/px6RmiMZ">here.</a></span> 
+                <FaChalkboardTeacher size={64} color="#E0B643" />
+              </div>
             </div>
           </div>
          
