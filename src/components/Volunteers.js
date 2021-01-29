@@ -25,7 +25,7 @@ const Volunteers = () => {
               </p>
               <ul className="volunteer-list">
                 <li>Supporting students academically for the duration of the semester</li>
-                <li>Planning individual tutoring sessions at their and their students availability</li>
+                <li>Planning individual tutoring sessions at their and their student's availability</li>
                 <li>Observing improved academic performance with their students</li>
                 <li>Making an impact of their own in communities’ educational access across the country</li>
               </ul>

@@ -7,7 +7,7 @@ import Home from './components/Home';
 import SignUp from './components/SignUp';
 import Login from './components/Login';
 import About from './components/About';
-import OurTeam from './components/OurTeam';
+import Team from './components/Team';
 import Volunteers from './components/Volunteers';
 import Dashboard from './components/Dashboard/Dashboard';
 import Tutors from './components/Tutors/Tutors';
@@ -110,7 +110,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/team" component={OurTeam} />
+          <Route exact path="/team" component={Team} />
           <Route exact path="/signup" component={SignUp} />
           <Route exact path="/signin" component={Login} />
           <Route exact path="/me" component={Dashboard} />

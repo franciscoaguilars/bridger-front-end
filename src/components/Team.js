@@ -1,11 +1,11 @@
-import react from 'react';
-import PlaceholderImg from "../assets/images/team_photos/placeholder.png";
+import React from 'react';
 import Jamo from "../assets/images/team_photos/jamo.png";
 import Mullen from "../assets/images/team_photos/mullen.jpg";
 import Lou from "../assets/images/team_photos/lou.jpeg";
-import Julia from "../assets/images/team_photos/julia.png"
+import Julia from "../assets/images/team_photos/julia.png";
+import Cam from "../assets/images/team_photos/cam.jpeg";
 
-const OurTeam = () => {
+const Team = () => {
   return (
     <div>
       <div className="team-banner">
@@ -18,7 +18,7 @@ const OurTeam = () => {
 
           <div className="row mb-4">
             <div className="col-lg-4 col-sm-12">
-              <img className="team-img" src={PlaceholderImg} alt="team-member"/>
+              <img className="team-img" src={Cam} alt="team-member"/>
             </div>
             <div className="col-lg-8 col-sm-12">
               <h2>Cameron Keehn</h2>
@@ -124,4 +124,4 @@ const OurTeam = () => {
   )
 }
 
-export default OurTeam;
+export default Team;
