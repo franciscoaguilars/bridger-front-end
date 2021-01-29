@@ -73,9 +73,15 @@
     clip-path: none;
     text-align: center;
   }
+  .title-home-overlay-header {
+    width: 90%;
+  }
 }
 
 @media (max-width: 700px) {
+  .how-it-works {
+    padding: 2rem
+  }
   .how-it-works-deck {
     display: flex;
     flex-direction: column;

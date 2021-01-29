@@ -13,7 +13,7 @@ const Volunteers = () => {
         <div className="mb-5">
   
           <div className="row mb-4">
-            <div className="col-lg-4 col-sm-12 d-flex align-items-center d-flex align-items-center">
+            <div className="col-lg-4 col-sm-12 d-flex align-items-start">
               <h1 className="mb-4">Role of a Tutor</h1>
             </div>
             <div className="col-lg-8 col-sm-12">
@@ -33,7 +33,7 @@ const Volunteers = () => {
           </div>
 
           <div className="row mb-4">
-            <div className="col-lg-4 col-sm-12 d-flex align-items-center d-flex align-items-center">
+            <div className="col-lg-4 col-sm-12 d-flex align-items-start">
               <h1 className="mb-4">Become a Tutor</h1>
             </div>
             <div className="col-lg-8 col-sm-12">
