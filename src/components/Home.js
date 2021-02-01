@@ -22,18 +22,18 @@ const Home = () => {
         <div className="how-it-works-card">
           <p>Interested in becoming a tutor?</p>
           <Link to="/volunteers">Learn more.</Link>
-          <AiOutlineUserAdd size={64} color="#E0B643" />
+          <Link to="/volunteers"><AiOutlineUserAdd size={64} color="#E0B643" /></Link>
         </div>
         <div className="how-it-works-card">
           <p>Looking to schedule a session with one of our tutors?</p>
           <span className="mb-3">Sign up <a href="https://thedecnetwork.typeform.com/to/Jbca7QrZ">here.</a></span> 
-          <FaChalkboardTeacher size={64} color="#E0B643" />
+          <a href="https://thedecnetwork.typeform.com/to/Jbca7QrZ"><FaChalkboardTeacher size={64} color="#E0B643" /></a>
+          
         </div>
         <div className="how-it-works-card"> 
           <p>Is your organization interested in partnering with us?</p>
           <span>Find out more <Link to="/about" >here.</Link></span>
-          
-          <FaHandshake size={64} color="#E0B643" />
+          <Link to="/about" ><FaHandshake size={64} color="#E0B643" /></Link>
         </div>
       </div>
     </div>
