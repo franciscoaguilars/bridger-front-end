@@ -65,7 +65,7 @@ const Volunteers = () => {
               <div className="how-it-works-card">
                 <p>If this sounds like you, click below to join us!</p>
                 <span className="mb-3">Sign up <a href="https://thedecnetwork.typeform.com/to/px6RmiMZ">here.</a></span> 
-                <FaChalkboardTeacher size={64} color="#E0B643" />
+                <a href="https://thedecnetwork.typeform.com/to/px6RmiMZ"><FaChalkboardTeacher size={64} color="#E0B643" /></a>
               </div>
             </div>
           </div>
