@@ -14,6 +14,7 @@ import {Provider} from 'react-redux';
 import rootReducer from "./reducers/rootReducer";
 import thunk from "redux-thunk";
 import ScrollToTop from './components/ScrollToTop';
+import HttpsRedirect from 'react-https-redirect';
 
 // FOR DEVELOPMENT / THERE ARE ISSUES WITH SOME BROWSERS WHEN USING REDUX DEVTOOLS
 // const store = createStore(
@@ -32,12 +33,15 @@ const store = createStore(
 );
 
 ReactDOM.render(
-  <Provider store={store}>
-  <Router>
-  <ScrollToTop />
-    <Route path="/" component={App}/>
-  </Router>
-  </Provider>,
+  <HttpsRedirect>
+    <Provider store={store}>
+      <Router>
+        <ScrollToTop />
+        <Route path="/" component={App}/>
+      </Router>
+    </Provider>
+  </HttpsRedirect>
+  ,
   document.getElementById('root')
 );
 
