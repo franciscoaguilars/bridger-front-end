@@ -16,7 +16,6 @@ const About = () => {
             </div>
             <div className="col-lg-8 col-sm-12">
               <p>Smart Reach is a not-for-profit tutoring service founded on the idea that by providing educational support to economically disadvantaged students, we can bridge societal, medical, educational, and economical gaps between people, communities, and cities alike. In the wake of the COVID-19 pandemic and ever increasing wage gaps, students who are disadvantaged have more barriers to their success than ever, with students from lower socioeconomic status communities consistently scoring behind their more privileged peers. Adding to this pressure, now the interpersonal knowledge that fosters curiosity and an interest in learning is no longer present. It is our goal to empower these students and make resources available to them so that they may meet their potential regardless of the circumstances they find themselves in at the current moment.
-
             </p>
             </div>
           </div>
@@ -26,8 +25,6 @@ const About = () => {
             </div>
             <div className="col-lg-8 col-sm-12">
               <p>We are a group of individuals who aim to utilize the skills and knowledge we have gained through our personal educational achievement to bridge the gap in quality education through free tutoring services for students that are not sufficiently served by their current education systems. We hope to work with these students to create equality between all communities in the strength and quality of the education that young minds receive. We are qualified to serve each student with an individualistic and holistic approach as a result of our tutors’ expansive educational experiences and thorough knowledge of college and graduate admissions processes.
-
-
             </p>
             </div>
             
@@ -38,7 +35,6 @@ const About = () => {
             </div>
             <div className="col-lg-8 col-sm-12">
               <p>We strive to bridge the educational gap in today’s society; to help better the future of bright individuals through improved resources, tutoring, education, and mentorship. Smart Reach is working to create prosperity and empower communities that do not have access to the same opportunities that other communities may have. 
-
             </p>
             </div>
           </div>
@@ -59,7 +55,7 @@ const About = () => {
               <h1 className="mb-4">Ways to Get Involved</h1>
             </div>
             <div className="col-lg-8 col-sm-12">
-              <p>Contact us at <strong>info@thesmartreach.org</strong> and ask about open volunteer positions! Whether you are trying to fulfill volunteer hour requirements or lend a hand by using your unique skill set to make a direct impact in a local community, we can use your help!
+              <p>Contact us at <strong>info@thesmartreach.org</strong> and ask about open volunteer positions or tutoring partnerships! Whether you are trying to fulfill volunteer hour requirements or lend a hand by using your unique skill set to make a direct impact in a local community, we can use your help!
             </p>
             </div>
           </div> 
