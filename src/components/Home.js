@@ -58,7 +58,7 @@ const Home = () => {
           <Link to="/about" ><FaRegHandshake size={64} color="#4babb1" /></Link>
           <p className="card-header">PARTNERS</p>
           <p>Our partners support our mission to bring resources to communities empowering the next generation.</p>
-          <Link to="/about"><button className="card-button">FIND OUT MORE</button></Link>
+          <Link to="/about"><button className="card-button">JOIN US</button></Link>
         </div>
 
       </div>
