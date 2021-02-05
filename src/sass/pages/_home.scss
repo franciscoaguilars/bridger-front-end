@@ -32,6 +32,17 @@
   font-size: 24px;
 }
 
+.title-home-arrow {
+  position: relative;
+  height: 90vh;
+}
+
+.down-arrow {
+  position: absolute;
+  bottom: 0;
+  left: 50vw;
+}
+
 .how-it-works {
   width: 100%;
   padding: 5rem;
@@ -54,10 +65,41 @@
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background: rgba(251, 251, 251, 0.9);
+  background: rgba(251, 251, 251, 1);
   border-radius: 5px;
   width: 20rem;
   box-shadow: 1px 2px 10px gray;
+}
+
+.card-header {
+  font-size: 35px;
+  font-weight: 900;
+  background-color: rgba(251, 251, 251, 1);
+  box-shadow: none;
+  border: none;
+}
+
+.card-button {
+  background-color: #4babb1;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  border-radius: 20px;
+  cursor: pointer;
+  margin: 20px 0;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+}
+
+.card-button:hover {
+  background-color: #1a848c;
 }
 
 .how-it-works-card:not(:last-child){
