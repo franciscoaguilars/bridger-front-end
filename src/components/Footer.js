@@ -3,16 +3,10 @@ import useViewport from "../hooks/useViewport";
 
 const Footer = () => {
   const {viewportWidth} = useViewport();
-  const divStyle = {
-    position: 'absolute',
-    bottom: -230,
-    width: '100vw'
-  };
   let footer;
 
   if (viewportWidth > 1200) {
     footer = (
-      <div style={divStyle}>
         <div className="footer">
           <div className="container">
             <div className="row">
@@ -33,11 +27,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
     );
   } else if (viewportWidth <= 1200 && viewportWidth > 770) {
     footer = (
-      <div style={divStyle}>
         <div className="footer">
           <div className="container">
             <div className="row">
@@ -53,11 +45,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
     );
   } else if (viewportWidth <= 770 && viewportWidth > 400){
     footer = (
-      <div style={divStyle}>
         <div className="footer">
           <div className="container">
             <div className="row">
@@ -72,11 +62,9 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
     );
   } else if (viewportWidth <= 400) {
     footer = (
-      <div style={divStyle}>
         <div className="footer">
           <div className="container">
             <div className="row">
@@ -91,7 +79,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
     );
   };
 
