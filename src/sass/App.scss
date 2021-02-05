@@ -17,6 +17,10 @@
 @import "components/flash-message";
 @import "components/avatar";
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #fbfbfb;
 }

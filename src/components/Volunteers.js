@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaChalkboardTeacher } from 'react-icons/fa';
+import { AiOutlineTeam } from 'react-icons/ai';
 
 const Volunteers = () => {
   return (
@@ -63,9 +63,10 @@ const Volunteers = () => {
           <div className="volunteer-sign-up-box">
             <div className="how-it-works-deck">
               <div className="how-it-works-card">
-                <p>If this sounds like you, click below to join us!</p>
-                <span className="mb-3">Sign up <a href="https://thedecnetwork.typeform.com/to/px6RmiMZ">here.</a></span> 
-                <a href="https://thedecnetwork.typeform.com/to/px6RmiMZ"><FaChalkboardTeacher size={64} color="#E0B643" /></a>
+                <AiOutlineTeam size={64} color="#4babb1" />
+                <p className="card-header">JOIN US</p>
+                <p>If this sounds like you we'd love to have you!</p>
+                <a href="https://thedecnetwork.typeform.com/to/px6RmiMZ" class="card-button">SIGN UP</a>
               </div>
             </div>
           </div>
