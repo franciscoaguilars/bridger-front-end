@@ -4,6 +4,11 @@ import Mullen from "../assets/images/team_photos/mullen.jpg";
 import Lou from "../assets/images/team_photos/lou.jpeg";
 import Julia from "../assets/images/team_photos/julia.png";
 import Cam from "../assets/images/team_photos/cam.jpeg";
+import CamCrop from "../assets/images/team_photos/cam_crop.png";
+import JamoCrop from "../assets/images/team_photos/jamo_crop.png";
+import MullenCrop from "../assets/images/team_photos/mullen_crop.png";
+import LouCrop from "../assets/images/team_photos/lou_crop.png";
+import JuliaCrop from "../assets/images/team_photos/julia_crop.png";
 
 const Team = () => {
   return (
@@ -17,8 +22,8 @@ const Team = () => {
         <div className="mb-5">
 
           <div className="row mb-4">
-            <div className="col-lg-4 col-sm-12">
-              <img className="team-img" src={Cam} alt="team-member"/>
+            <div className="team-image-box col-lg-4 col-sm-12">
+              <img className="team-img" src={CamCrop} alt="team-member"/>
             </div>
             <div className="col-lg-8 col-sm-12">
               <h2>Cameron Keehn</h2>
@@ -34,8 +39,8 @@ const Team = () => {
           </div>
 
           <div className="row mb-4">
-            <div className="col-lg-4 col-sm-12">
-              <img className="team-img" src={Mullen} alt="team-member"/>
+            <div className="team-image-box col-lg-4 col-sm-12">
+              <img className="team-img" src={MullenCrop} alt="team-member"/>
             </div>
             <div className="col-lg-8 col-sm-12">
             <h2>Michael Mullen</h2>
@@ -58,8 +63,8 @@ const Team = () => {
           </div>
 
           <div className="row mb-4">
-            <div className="col-lg-4 col-sm-12">
-              <img className="team-img" src={Julia} alt="team-member"/>
+            <div className="team-image-box col-lg-4 col-sm-12">
+              <img className="team-img" src={JuliaCrop} alt="team-member"/>
             </div>
             <div className="col-lg-8 col-sm-12">
             <h2>Julia Rosenblatt</h2>
@@ -81,8 +86,8 @@ const Team = () => {
           </div>
 
           <div className="row mb-4">
-            <div className="col-lg-4 col-sm-12">
-              <img className="team-img" src={Jamo} alt="team-member"/>
+            <div className="team-image-box col-lg-4 col-sm-12">
+              <img className="team-img" src={JamoCrop} alt="team-member"/>
             </div>
             <div className="col-lg-8 col-sm-12">
             <h2>Jamieson Reinhard</h2>
@@ -100,8 +105,8 @@ const Team = () => {
           </div>
 
           <div className="row mb-4">
-            <div className="col-lg-4 col-sm-12">
-              <img className="team-img" src={Lou} alt="team-member"/>
+            <div className="team-image-box col-lg-4 col-sm-12">
+              <img className="team-img" src={LouCrop} alt="team-member"/>
             </div>
             <div className="col-lg-8 col-sm-12">
             <h2>Louis Garavaglia</h2>

@@ -79,3 +79,16 @@
       background-color: rgba(251, 251, 251, 0.9);
     }
   }
+
+  @media (max-width: 450px) {
+  .volunteer-sign-up-box {
+    width: 100%;
+    padding: 5rem;
+    margin-top: 10vh;
+    background-color: initial;
+    text-align: center;
+    box-shadow: none;
+    border-radius: none;
+  }
+
+  }

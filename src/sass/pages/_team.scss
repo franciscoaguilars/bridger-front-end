@@ -27,8 +27,23 @@
     width: 400px;
   }
 
+  .team-image-box {
+    text-align: right;
+  }
+
   .team-img {
-    width: 300px;
+    width: 250px;
+  }
+
+  @media (max-width: 976px) {
+    .team-image-box {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .team-img {
+      width: 200px;
+    }
   }
   
   @media (max-width: 900px) {
@@ -44,5 +59,16 @@
     }
     .team-img {
       width: 200px;
+    }
+  }
+
+    @media (max-width: 400px) {
+    .team-image-box {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .team-img {
+      width: 100px;
     }
   }
