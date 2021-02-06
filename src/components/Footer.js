@@ -57,7 +57,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="d-flex justify-content-center mt-5">
+            <div className="d-flex justify-content-center mt-3">
                 <small className="footer-text-small">© The Smart Reach, 2021</small>
             </div>
           </div>
@@ -74,7 +74,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="d-flex justify-content-center mt-5">
+            <div className="d-flex justify-content-center mt-2">
                 <small className="footer-text-extra-small">© The Smart Reach, 2021</small>
             </div>
           </div>
