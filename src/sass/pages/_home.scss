@@ -119,6 +119,9 @@ a:hover {
   .title-home-overlay-header {
     width: 90%;
   }
+  .down-arrow {
+    display: none;
+  }
 }
 
 @media (max-width: 700px) {
@@ -139,5 +142,8 @@ a:hover {
   }
   .how-it-works-header h2 {
     font-size: 1.5rem;
+  }
+  .down-arrow {
+    display: none;
   }
 }
