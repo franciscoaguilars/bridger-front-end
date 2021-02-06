@@ -20,15 +20,17 @@ const Volunteers = () => {
               <p>
                 Tutors are the backbone of Smart Reach. Tutors will form individual connections with their 
                 students through diversified learning experiences to aid students in realizing their full academic potential.
-                <br></br>
-                <br></br>Tutors can look forward to:
+                Tutors can look forward to: supporting students academically for the duration of the semester, 
+                planning individual tutoring sessions at their and their student's availability,
+                observing improved academic performance with their students,
+                making an impact of their own in communities’ educational access across the country.
               </p>
-              <ul className="volunteer-list">
+              {/* <ul className="volunteer-list">
                 <li>Supporting students academically for the duration of the semester</li>
                 <li>Planning individual tutoring sessions at their and their student's availability</li>
                 <li>Observing improved academic performance with their students</li>
                 <li>Making an impact of their own in communities’ educational access across the country</li>
-              </ul>
+              </ul> */}
             </div>
           </div>
 
@@ -43,20 +45,20 @@ const Volunteers = () => {
                 potential, and for that we are truly grateful. To learn more about joining our team or to sign up to become a tutor, 
                 please contact us by completing the registration form <a href="https://thedecnetwork.typeform.com/to/px6RmiMZ">here</a>. We will reach out to you as soon as possible 
                 and greatly appreciate your consideration and support.
-                <br></br>
-                <br></br>Prerequisites:
+                The prerequisites include: Having a college degree, clearing a background check, and previous tutoring experience is appreciated, but not required.
+                The time commitment is up to you! We love to see students forming longitudinal connections with their tutors, but sessions will be made based on your availability and interests.
               </p>
-              <ul className="volunteer-list">
+              {/* <ul className="volunteer-list">
                 <li>College degree</li>
                 <li>Clear background check</li>
                 <li>Previous tutoring experience is appreciated, but not required</li>
-              </ul>
-              <br></br>
+              </ul> */}
+              {/* <br></br>
               <p>Time Commitment:</p>
               <ul className="volunteer-list">
                 <li>Up to you!</li>
                 <li>We love to see students forming longitudinal connections with their tutors, but sessions will be made based on your availability and interests</li>
-              </ul>
+              </ul> */}
             </div>
           </div>
 
