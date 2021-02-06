@@ -13,12 +13,12 @@ const Footer = () => {
               <div className="col-lg-7 col-sm-12">
                 <div className="footer-contents pr-5">
                   <img src="/images/sr_logo.png" alt="logo" width="100px" height="100px" class="mr-3" />
-                  Smart Reach is a not-for-profit tutoring service founded on the idea that by providing educational support to economically disadvantaged students, we can bridge societal, medical, educational, and economical gaps between people, communities, and cities alike.
+                  <p>Smart Reach is a not-for-profit tutoring service founded on the idea that by providing educational support to economically disadvantaged students, we can bridge societal, medical, educational, and economical gaps between people, communities, and cities alike.</p>
                 </div>
               </div>
               <div className="col-lg-5 col-sm-12">
                 <div className="footer-contact d-flex align-items-center">
-                  <p><strong>info@thesmartreach.org</strong></p>
+                  <p>info@thesmartreach.org</p>
                 </div>
               </div>
             </div>
@@ -36,7 +36,7 @@ const Footer = () => {
               <div>
                 <div className="footer-contents-no-border pr-5">
                   <img src="/images/sr_logo.png" alt="logo" width="100px" height="100px" class="mr-3" />
-                  Smart Reach is a not-for-profit tutoring service founded on the idea that by providing educational support to economically disadvantaged students, we can bridge societal, medical, educational, and economical gaps between people, communities, and cities alike. | info@thesmartreach.org
+                  <p>Smart Reach is a not-for-profit tutoring service founded on the idea that by providing educational support to economically disadvantaged students, we can bridge societal, medical, educational, and economical gaps between people, communities, and cities alike.</p>
                 </div>
               </div>
             </div>
@@ -53,12 +53,12 @@ const Footer = () => {
             <div className="row">
               <div>
                 <div className="footer-contents-no-border">
-                  Smart Reach is a not-for-profit tutoring service founded on the idea that by providing educational support to economically disadvantaged students, we can bridge societal, medical, educational, and economical gaps between people, communities, and cities alike. | info@thesmartreach.org
+                  <p className="footer-text-small">Smart Reach is a not-for-profit tutoring service founded on the idea that by providing educational support to economically disadvantaged students, we can bridge societal, medical, educational, and economical gaps between people, communities, and cities alike.</p>
                 </div>
               </div>
             </div>
             <div className="d-flex justify-content-center mt-5">
-                <small>© The Smart Reach, 2021</small>
+                <small className="footer-text-small">© The Smart Reach, 2021</small>
             </div>
           </div>
         </div>
@@ -70,12 +70,12 @@ const Footer = () => {
             <div className="row">
               <div>
                 <div className="footer-contents-extra-small">
-                  Smart Reach is a not-for-profit tutoring service founded on the idea that by providing educational support to economically disadvantaged students, we can bridge societal, medical, educational, and economical gaps between people, communities, and cities alike. | info@thesmartreach.org
+                  <p className="footer-text-extra-small">Smart Reach is a not-for-profit tutoring service founded on the idea that by providing educational support to economically disadvantaged students, we can bridge societal, medical, educational, and economical gaps between people, communities, and cities alike.</p>
                 </div>
               </div>
             </div>
             <div className="d-flex justify-content-center mt-5">
-                <small>© The Smart Reach, 2021</small>
+                <small className="footer-text-extra-small">© The Smart Reach, 2021</small>
             </div>
           </div>
         </div>
