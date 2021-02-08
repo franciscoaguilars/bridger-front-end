@@ -67,7 +67,7 @@ const Volunteers = () => {
               <div className="how-it-works-card">
                 <AiOutlineTeam size={64} color="#4babb1" />
                 <p className="card-header">JOIN US</p>
-                <p>If this sounds like you we'd love to here from you!</p>
+                <p>If this sounds like you we'd love to hear from you!</p>
                 <a href="https://thedecnetwork.typeform.com/to/px6RmiMZ" class="card-button">SIGN UP</a>
               </div>
             </div>
