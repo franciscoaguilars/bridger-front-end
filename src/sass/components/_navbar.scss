@@ -18,3 +18,12 @@
     color: #E0B643 !important;
   }
 }
+
+@media (max-width: 991px) {
+  .navbar {
+    padding-bottom: 10px !important;
+  }
+  .nav-link {
+    margin-top: 3px;
+  }
+}
